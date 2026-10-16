@@ -245,26 +245,56 @@
   const rtdb = firebase.database();
 
   // Realtime Database Reservation Helper Function
-  function reserveSlot(stationId) {
-    const user = auth.currentUser;
-    const userEmail = user ? user.email : "guest_rider@voltdock.demo";
+ // Realtime Database Reservation Helper Function
+function reserveSlot(stationId) {
+  const user = auth.currentUser;
+  const userEmail = user ? user.email : "guest_rider@voltdock.demo";
 
-    // Generate random 4-digit OTP
-    const generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+  // Generate random 4-digit OTP
+  const generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
 
-    // Write OTP and station state directly to Realtime Database
-    rtdb.ref('locks/' + stationId).set({
-      reservedBy: userEmail,
-      otp: generatedOTP,
-      status: "LOCKED",
-      timestamp: Date.now()
-    }).then(() => {
-      alert(`Reservation Successful!\n\nStation: ${stationId}\nGenerated OTP: ${generatedOTP}\n\nEnter this OTP on the ESP32 Keypad to unlock!`);
-      toast("OTP Generated", `Station ${stationId} OTP: ${generatedOTP}`);
-    }).catch(error => {
-      alert("Reservation failed: " + error.message);
-    });
+  // Write OTP and status directly to Realtime Database
+  rtdb.ref('locks/' + stationId).set({
+    reservedBy: userEmail,
+    otp: generatedOTP,
+    status: "RESERVED",
+    timestamp: Date.now()
+  }).then(() => {
+    alert(`Reservation Successful!\n\nStation: ${stationId}\nGenerated OTP: ${generatedOTP}\n\nEnter this OTP on the ESP32 Keypad to unlock!`);
+  }).catch(error => {
+    alert("Reservation failed: " + error.message);
+  });
+}
+
+// Real-time Listener: Sync reservation status across all open browsers
+rtdb.ref('locks/Parul').on('value', snapshot => {
+  const data = snapshot.val();
+  const parulStation = demoKiosks.find(k => k.id === 'Parul');
+
+  if (data && data.status === 'RESERVED') {
+    if (parulStation) {
+      parulStation.ready = 0;
+    }
+    
+    const readySlot = slots.find(s => s.type === 'pickup');
+    if (readySlot) {
+      readySlot.state = 'reserved';
+      readySlot.name = 'Held (OTP: ' + data.otp + ')';
+    }
+    
+    renderSlots();
+    renderKiosks();
+  } else if (data && data.status === 'UNLOCKED') {
+    const readySlot = slots.find(s => s.type === 'pickup');
+    if (readySlot) {
+      readySlot.state = 'empty';
+      readySlot.name = 'Vacant (Battery Taken)';
+    }
+    
+    renderSlots();
+    renderKiosks();
   }
+});
 </script>
 
 <!-- UI Core Logic -->
