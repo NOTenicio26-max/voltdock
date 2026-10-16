@@ -276,25 +276,34 @@ rtdb.ref('locks/Parul').on('value', snapshot => {
       parulStation.ready = 0;
     }
     
-    const readySlot = slots.find(s => s.type === 'pickup');
-    if (readySlot) {
-      readySlot.state = 'reserved';
-      readySlot.name = 'Held (OTP: ' + data.otp + ')';
+    // Reserve Slot 01 without revealing OTP to public browsers
+    const slot1 = slots.find(s => s.id === 1);
+    if (slot1) {
+      slot1.state = 'reserved';
+      slot1.name = 'Reserved Slot';
+    }
+    
+    // Ensure Slot 02 stays as empty return bay
+    const slot2 = slots.find(s => s.id === 2);
+    if (slot2 && slot2.state !== 'charging') {
+      slot2.state = 'empty';
+      slot2.name = 'Vacant return bay';
     }
     
     renderSlots();
     renderKiosks();
   } else if (data && data.status === 'UNLOCKED') {
-    const readySlot = slots.find(s => s.type === 'pickup');
-    if (readySlot) {
-      readySlot.state = 'empty';
-      readySlot.name = 'Vacant (Battery Taken)';
+    const slot1 = slots.find(s => s.id === 1);
+    if (slot1) {
+      slot1.state = 'empty';
+      slot1.name = 'Vacant (Battery Taken)';
     }
     
     renderSlots();
     renderKiosks();
   }
 });
+
 </script>
 
 <!-- UI Core Logic -->
