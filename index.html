@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#080d0c">
 <title>VoltDock — Smart Battery Exchange</title>
 
-<!-- Firebase JS SDK (compat libraries for Auth, Firestore, and Realtime Database) -->
+<!-- Firebase JS SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore-compat.js"></script>
@@ -152,7 +152,17 @@
     <div class="panel">
       <div class="panel-head"><div><div class="panel-title">Book a battery</div><div class="panel-sub">Create a simulated reservation</div></div><span class="demo-badge">NO ACCOUNT REQUIRED</span></div>
       <form id="bookingForm">
-        <div class="form-row"><div class="field"><label for="arrivalTime">Estimated arrival</label><select id="arrivalTime"><option value="5">In 5 minutes</option><option value="10" selected>In 10 minutes</option><option value="15">In 15 minutes</option><option value="20">In 20 minutes</option></select></div><div class="field"><label for="bookingBattery">Battery profile</label><select id="bookingBattery"><option>VoltDock M1</option><option>VoltDock M2</option><option>Universal demo</option></select></div></div>
+        <div class="form-row"><div class="field"><label for="arrivalTime">Estimated arrival</label>
+        
+        <!-- NEW ETA DROPDOWN -->
+        <select id="arrivalTime">
+          <option value="10" selected>10 Seconds (Live Demo)</option>
+          <option value="60">In 1 minute</option>
+          <option value="120">In 2 minutes</option>
+          <option value="300">In 5 minutes</option>
+        </select>
+        
+        </div><div class="field"><label for="bookingBattery">Battery profile</label><select id="bookingBattery"><option>VoltDock M1</option><option>VoltDock M2</option><option>Universal demo</option></select></div></div>
         <div class="field"><label for="bookingName">Rider label (optional)</label><input id="bookingName" placeholder="e.g. Rider 024"></div>
         <button class="btn btn-primary" type="submit">Reserve a battery <span>→</span></button>
       </form>
@@ -244,66 +254,108 @@
   const db = firebase.firestore();
   const rtdb = firebase.database();
 
-  // Realtime Database Reservation Helper Function
- // Realtime Database Reservation Helper Function
-function reserveSlot(stationId) {
-  const user = auth.currentUser;
-  const userEmail = user ? user.email : "guest_rider@voltdock.demo";
+  // --- NEW TIMER AND PENALTY LOGIC ---
+  let countdownInterval;
+  let penaltyActive = false;
 
-  // Generate random 4-digit OTP
-  const generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+  function reserveSlot(stationId, durationSeconds = 10) {
+    if (penaltyActive) {
+      alert("Cooldown active! Please wait for the penalty to clear.");
+      return;
+    }
 
-  // Write OTP and status directly to Realtime Database
-  rtdb.ref('locks/' + stationId).set({
-    reservedBy: userEmail,
-    otp: generatedOTP,
-    status: "RESERVED",
-    timestamp: Date.now()
-  }).then(() => {
-    alert(`Reservation Successful!\n\nStation: ${stationId}\nGenerated OTP: ${generatedOTP}\n\nEnter this OTP on the ESP32 Keypad to unlock!`);
-  }).catch(error => {
-    alert("Reservation failed: " + error.message);
-  });
-}
+    const user = auth.currentUser;
+    const userEmail = user ? user.email : "guest_rider@voltdock.demo";
+    const generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
 
-// Real-time Listener: Sync reservation status across all open browsers
-rtdb.ref('locks/Parul').on('value', snapshot => {
-  const data = snapshot.val();
-  const parulStation = demoKiosks.find(k => k.id === 'Parul');
-
-  if (data && data.status === 'RESERVED') {
-    if (parulStation) {
-      parulStation.ready = 0;
-    }
-    
-    // Reserve Slot 01 without revealing OTP to public browsers
-    const slot1 = slots.find(s => s.id === 1);
-    if (slot1) {
-      slot1.state = 'reserved';
-      slot1.name = 'Reserved Slot';
-    }
-    
-    // Ensure Slot 02 stays as empty return bay
-    const slot2 = slots.find(s => s.id === 2);
-    if (slot2 && slot2.state !== 'charging') {
-      slot2.state = 'empty';
-      slot2.name = 'Vacant return bay';
-    }
-    
-    renderSlots();
-    renderKiosks();
-  } else if (data && data.status === 'UNLOCKED') {
-    const slot1 = slots.find(s => s.id === 1);
-    if (slot1) {
-      slot1.state = 'empty';
-      slot1.name = 'Vacant (Battery Taken)';
-    }
-    
-    renderSlots();
-    renderKiosks();
+    rtdb.ref('locks/' + stationId).set({
+      reservedBy: userEmail,
+      otp: generatedOTP,
+      status: "RESERVED",
+      timestamp: Date.now()
+    }).then(() => {
+      startBookingTimer(stationId, durationSeconds);
+      const result = document.getElementById('bookingResult');
+      result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Battery reserved</div><div class="result-copy">OTP: <b style="font-size:16px;color:white">${generatedOTP}</b><br>Hurry! <span id="liveTimer" style="color:var(--amber);font-weight:bold;"></span> remaining.</div>`;
+      result.classList.add('show');
+    }).catch(error => {
+      alert("Reservation failed: " + error.message);
+    });
   }
-});
 
+  function startBookingTimer(stationId, duration) {
+    let timer = duration;
+    clearInterval(countdownInterval);
+    
+    countdownInterval = setInterval(function () {
+      let m = parseInt(timer / 60, 10);
+      let s = parseInt(timer % 60, 10);
+      let timerDisplay = document.getElementById("liveTimer");
+      
+      if (timerDisplay) {
+          timerDisplay.innerText = m + ":" + (s < 10 ? "0" : "") + s;
+      }
+
+      if (--timer < 0) {
+        clearInterval(countdownInterval);
+        applyPenalty(stationId);
+      }
+    }, 1000);
+  }
+
+  function applyPenalty(stationId) {
+    penaltyActive = true;
+    // Wipe OTP from Firebase so ESP32 hardware rejects it
+    rtdb.ref('locks/' + stationId).update({ otp: "", status: "EXPIRED" });
+    
+    const result = document.getElementById('bookingResult');
+    result.innerHTML = `<div class="result-title" style="color:var(--red)">⚠ Reservation Expired</div><div class="result-copy">You didn't reach on time. OTP wiped. 5-minute lockout active.</div>`;
+    
+    // Clear penalty after 5 minutes
+    setTimeout(() => {
+      penaltyActive = false;
+      if(result.innerHTML.includes("Expired")) {
+         result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Penalty Cleared</div><div class="result-copy">You can book a slot again.</div>`;
+      }
+    }, 300000); 
+  }
+
+  // Real-time Listener: Syncs with ESP32 clearing the code on success
+  rtdb.ref('locks/Parul').on('value', snapshot => {
+    const data = snapshot.val();
+    const parulStation = demoKiosks.find(k => k.id === 'Parul');
+
+    // ESP32 SUCCESS CHECK: If OTP was wiped while status was still RESERVED
+    if (data && (data.otp === "" || !data.otp) && data.status === 'RESERVED') {
+      clearInterval(countdownInterval);
+      const result = document.getElementById('bookingResult');
+      if(result && result.classList.contains('show') && !penaltyActive) {
+          result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Access Granted</div><div class="result-copy">ESP32 Lock opened successfully!</div>`;
+      }
+      
+      if (parulStation) parulStation.ready = 0;
+      const slot1 = slots.find(s => s.id === 1);
+      if (slot1) { slot1.state = 'empty'; slot1.name = 'Vacant (Battery Taken)'; }
+      renderSlots();
+      renderKiosks();
+    } 
+    // INITIAL BOOKING SYNC
+    else if (data && data.status === 'RESERVED') {
+      if (parulStation) parulStation.ready = 0;
+      
+      const slot1 = slots.find(s => s.id === 1);
+      if (slot1) { slot1.state = 'reserved'; slot1.name = 'Reserved Slot'; }
+      
+      const slot2 = slots.find(s => s.id === 2);
+      if (slot2 && slot2.state !== 'charging') {
+        slot2.state = 'empty';
+        slot2.name = 'Vacant return bay';
+      }
+      
+      renderSlots();
+      renderKiosks();
+    }
+  });
 </script>
 
 <!-- UI Core Logic -->
@@ -361,10 +413,9 @@ document.getElementById('swapForm').addEventListener('submit',e=>{
  if(reserve){originalReservation={pin:pin,slotId:ret.id,originalLabel:'Your original battery',status:'charging'};ret.name='Original · reserved';ret.state='reserved'}
  renderSlots();
 
- // Also push this PIN directly to Realtime DB under 'Parul'
- reserveSlot('Parul');
+ reserveSlot('Parul', 10);
 
- result.innerHTML=`<div class="result-title" style="color:var(--green)">✓ Swap simulated successfully</div><div class="result-copy">Your selected ${chosen.charge}% charged battery from slot ${String(ready.id).padStart(2,'0')} is marked as loaned. OTP sent to Firebase for physical keypad unlock!</div><div class="result-meta"><span class="tag">Selected charge: ${chosen.charge}%</span><span class="tag">Free Demo Swap</span></div>`;
+ result.innerHTML=`<div class="result-title" style="color:var(--green)">✓ Swap simulated successfully</div><div class="result-copy">Your selected ${chosen.charge}% charged battery from slot ${String(ready.id).padStart(2,'0')} is marked as loaned.</div>`;
  result.classList.add('show');
 });
 
@@ -384,50 +435,31 @@ function reclaimOriginal(){
 
 document.getElementById('bookingForm').addEventListener('submit',e=>{
  e.preventDefault();
+ 
+ if(penaltyActive) {
+     toast('Penalty active', 'Wait for the cooldown to finish before booking.');
+     return;
+ }
+ 
  const ready=slots.find(s=>s.type==='pickup'&&s.state==='ready');
- const mins=Number(document.getElementById('arrivalTime').value);
+ const secs=Number(document.getElementById('arrivalTime').value);
  const name=document.getElementById('bookingName').value.trim()||'Guest rider';
  const result=document.getElementById('bookingResult');
  
- if(!ready){result.innerHTML='<div class="result-title" style="color:var(--amber)">⚠ No battery available to reserve</div>';result.classList.add('show');return}
+ if(!ready){result.innerHTML='<div class="result-title" style="color:var(--amber)">⚠ No battery available</div>';result.classList.add('show');return}
  
  ready.state='reserved';ready.name='Held · '+name;
  renderSlots();
 
- // Send reservation to Realtime Database
- reserveSlot('Parul');
-
- result.innerHTML=`<div class="result-title" style="color:var(--green)">✓ Battery reserved</div><div class="result-copy">A compatible demo battery is held for ${name}. OTP code sent to Realtime Database for ESP32 unlock!</div>`;
- result.classList.add('show');
+ // Pass the selected time from the dropdown!
+ reserveSlot('Parul', secs);
 });
 
 const batteryCatalogue={1:{slot:1,charge:100,health:98,profile:'M1',label:'Ready battery'}};
 let selectedBatteryId=1;
 const demoKiosks = [
-  {
-    id: 'Parul',
-    name: 'VoltDock · Parul University',
-    area: 'Goa Campus (Live ESP32 Hardware)',
-    distance: 0.1,
-    eta: 1,
-    ready: 1,
-    charging: 0,
-    slots: 2,
-    chargeLevels: [100],
-    health: 98
-  },
-  {
-    id: 'ONGC',
-    name: 'VoltDock · ONGC Station',
-    area: 'Goa Campus (Interactive Dummy)',
-    distance: 2.5,
-    eta: 8,
-    ready: 1,
-    charging: 1,
-    slots: 2,
-    chargeLevels: [85],
-    health: 92
-  }
+  { id: 'Parul', name: 'VoltDock · Parul University', area: 'Goa Campus', distance: 0.1, eta: 1, ready: 1, charging: 0, slots: 2, chargeLevels: [100], health: 98 },
+  { id: 'ONGC', name: 'VoltDock · ONGC Station', area: 'Goa Campus', distance: 2.5, eta: 8, ready: 1, charging: 1, slots: 2, chargeLevels: [85], health: 92 }
 ];
 let kioskBookings=[];
 
@@ -435,9 +467,7 @@ function selectBattery(id){selectedBatteryId=id;document.querySelectorAll('.batt
 
 function renderKiosks(){const filter=document.getElementById('kioskFilter')?.value||'all';const sort=document.getElementById('kioskSort')?.value||'distance';let data=demoKiosks.map(k=>({...k,ready:Math.max(0,k.ready-kioskBookings.filter(b=>b.kioskId===k.id&&b.status==='reserved').length)}));if(filter==='available')data=data.filter(k=>k.ready>0);if(filter==='charging')data=data.filter(k=>k.charging>0);data.sort(sort==='batteries'?(a,b)=>b.ready-a.ready||a.distance-b.distance:(a,b)=>a.distance-b.distance);document.getElementById('stationCount').textContent=demoKiosks.length;document.getElementById('totalReady').textContent=data.reduce((sum,k)=>sum+k.ready,0);const host=document.getElementById('kioskList');if(!data.length){host.innerHTML='<div class="panel-sub">No stations match this filter in the demo data.</div>';return}host.innerHTML=data.map(k=>{const levels=k.chargeLevels.slice(0,3).map((v,i)=>`<span class="kiosk-tag">Pack ${i+1}: ${v}%</span>`).join('');return `<article class="kiosk-card"><div class="kiosk-pin">⌖</div><div><div class="kiosk-name">${k.name}</div><div class="kiosk-address">${k.area} · ${k.id}</div><div class="kiosk-meta"><span class="kiosk-tag">${k.ready} batteries ready</span><span class="kiosk-tag">${k.charging} charging bays</span><span class="kiosk-tag">Avg. health ${k.health}%</span>${levels}</div></div><div class="kiosk-side"><div class="kiosk-distance">${k.distance.toFixed(1)} km<small>~${k.eta} min travel</small></div><div class="kiosk-actions"><button class="btn btn-primary btn-small" ${k.ready===0?'disabled style="opacity:.45;cursor:not-allowed"':''} onclick="bookKiosk('${k.id}')">Reserve OTP →</button></div></div></article>`}).join('');}
 
-function bookKiosk(id){
-  reserveSlot(id);
-}
+function bookKiosk(id){ reserveSlot(id, 10); }
 
 document.getElementById('kioskFilter')?.addEventListener('change',renderKiosks);
 document.getElementById('kioskSort')?.addEventListener('change',renderKiosks);
@@ -451,7 +481,6 @@ renderSlots();updateBatteryStats();selectBattery(1);renderKiosks();
   <input id="fbEmail" type="email" placeholder="Test account email" style="display:block;margin:10px 0;padding:8px;background:#080d0c;color:white;border:1px solid #385040;border-radius:6px">
   <input id="fbPassword" type="password" placeholder="Password" style="display:block;margin:10px 0;padding:8px;background:#080d0c;color:white;border:1px solid #385040;border-radius:6px">
   <button id="fbLogin" class="btn btn-primary btn-small" style="padding:8px 12px">Sign in</button>
-  <button id="fbTestReserve" class="btn btn-ghost btn-small" style="padding:8px 12px" onclick="reserveSlot('Parul')">Generate Test OTP</button>
   <p id="fbStatus" style="font-size:11px;margin-top:8px;color:#91a49a">Not signed in</p>
 </div>
 
@@ -462,7 +491,6 @@ document.getElementById("fbLogin").addEventListener("click", async () => {
   const password = document.getElementById("fbPassword").value;
 
   status.textContent = "Signing in...";
-
   try {
     await auth.signInWithEmailAndPassword(email, password);
   } catch (error) {
