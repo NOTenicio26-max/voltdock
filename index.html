@@ -185,7 +185,7 @@
   <div class="section-head"><div><div class="section-kicker">04 / Find a station</div><h2>Your next charge is closer than you think.</h2></div><p class="section-desc">Compare nearby VoltDock stations by distance, battery availability, and charging bays—then book a battery at the station that works for your route.</p></div>
   <div class="panel">
     <div class="panel-head"><div><div class="panel-title">Nearby VoltDock kiosks</div><div class="panel-sub">Sorted from nearest to farthest · illustrative station data</div></div><span class="demo-badge">DEMO LOCATIONS</span></div>
-    <div class="location-banner"><span class="icon">ⓘ</span><p><b>Location preview:</b> These are sample station names and distances for the prototype. The Parul University station links to the physical ESP32 solenoid lock demo.</p></div>
+    <div class="location-banner"><span class="icon">ⓘ</span><p><b>Location preview:</b> These are sample station names and distances for the prototype. The Parul University station links to the physical ESP32 demo.</p></div>
     <div class="nearby-summary"><div class="summary-chip"><strong id="stationCount">2</strong> illustrative stations</div><div class="summary-chip"><strong id="totalReady">2</strong> sample batteries ready</div><div class="summary-chip"><strong>2 slots</strong> per demo kiosk</div></div>
     <div class="kiosk-filters" style="margin-bottom:15px"><div class="field" style="margin:0;min-width:190px;flex:1"><label for="kioskFilter">Show stations</label><select id="kioskFilter"><option value="all">All stations</option><option value="available">Batteries available</option><option value="charging">Direct charging available</option></select></div><div class="field" style="margin:0;min-width:190px;flex:1"><label for="kioskSort">Sort by</label><select id="kioskSort"><option value="distance">Nearest first</option><option value="batteries">Most ready batteries</option></select></div></div>
     <div class="kiosk-list" id="kioskList"></div>
@@ -204,7 +204,7 @@
 </section>
 
 <section class="wrap section" id="architecture">
-  <div class="section-head"><div><div class="section-kicker">06 / Implementation roadmap</div><h2>Prototype today. Integrate tomorrow.</h2></div><p class="section-desc">This front-end is connected to Firebase Realtime Database to drive physical keypad and solenoid lock hardware.</p></div>
+  <div class="section-head"><div><div class="section-kicker">06 / Implementation roadmap</div><h2>Prototype today. Integrate tomorrow.</h2></div><p class="section-desc">This front-end is connected to Firebase Realtime Database to drive physical keypad hardware.</p></div>
   <div class="architecture">
     <div class="panel">
       <div class="panel-head"><div><div class="panel-title">Working in this prototype</div><div class="panel-sub">Available immediately in your browser</div></div><span class="live-label">READY</span></div>
@@ -268,7 +268,7 @@
     const userEmail = user ? user.email : "guest_rider@voltdock.demo";
     const generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
 
-    rtdb.ref('locks/' + stationId).set({
+    rtdb.ref('locks/' + stationId).update({
       reservedBy: userEmail,
       otp: generatedOTP,
       status: "RESERVED",
@@ -305,13 +305,11 @@
 
   function applyPenalty(stationId) {
     penaltyActive = true;
-    // Wipe OTP from Firebase so ESP32 hardware rejects it
     rtdb.ref('locks/' + stationId).update({ otp: "", status: "EXPIRED" });
     
     const result = document.getElementById('bookingResult');
     result.innerHTML = `<div class="result-title" style="color:var(--red)">⚠ Reservation Expired</div><div class="result-copy">You didn't reach on time. OTP wiped. 5-minute lockout active.</div>`;
     
-    // Clear penalty after 5 minutes
     setTimeout(() => {
       penaltyActive = false;
       if(result.innerHTML.includes("Expired")) {
@@ -320,17 +318,32 @@
     }, 300000); 
   }
 
-  // Real-time Listener: Syncs with ESP32 clearing the code on success
+  // Real-time Listener for Parul Station (OTP & Physical Battery Presence)
   rtdb.ref('locks/Parul').on('value', snapshot => {
     const data = snapshot.val();
+    if (!data) return;
+
+    // 1. Physical Battery Presence Check from ESP32 (GPIO 35)
+    if (data.slot1_present !== undefined) {
+      const isPresent = data.slot1_present;
+      const slot1 = slots.find(s => s.id === 1);
+      
+      if (slot1 && slot1.state !== 'reserved') {
+        slot1.state = isPresent ? 'ready' : 'empty';
+        slot1.name = isPresent ? 'Ready Battery' : 'Empty Slot';
+        renderSlots();
+        renderKiosks();
+      }
+    }
+
     const parulStation = demoKiosks.find(k => k.id === 'Parul');
 
     // ESP32 SUCCESS CHECK: If OTP was wiped while status was still RESERVED
-    if (data && (data.otp === "" || !data.otp) && data.status === 'RESERVED') {
+    if ((data.otp === "" || !data.otp) && data.status === 'RESERVED') {
       clearInterval(countdownInterval);
       const result = document.getElementById('bookingResult');
       if(result && result.classList.contains('show') && !penaltyActive) {
-          result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Access Granted</div><div class="result-copy">ESP32 Lock opened successfully!</div>`;
+          result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Access Granted</div><div class="result-copy">ESP32 Keypad authentication successful!</div>`;
       }
       
       if (parulStation) parulStation.ready = 0;
@@ -340,7 +353,7 @@
       renderKiosks();
     } 
     // INITIAL BOOKING SYNC
-    else if (data && data.status === 'RESERVED') {
+    else if (data.status === 'RESERVED') {
       if (parulStation) parulStation.ready = 0;
       
       const slot1 = slots.find(s => s.id === 1);
@@ -419,20 +432,6 @@ document.getElementById('swapForm').addEventListener('submit',e=>{
  result.classList.add('show');
 });
 
-function reclaimOriginal(){
- const pin=document.getElementById('returnPin')?.value.trim();
- const result=document.getElementById('swapResult');
- if(!originalReservation){toast('No reservation','There is no original battery reservation to reclaim.');return}
- if(pin!==originalReservation.pin){toast('PIN did not match','Try the demo PIN you created before swapping.');return}
- const loaned=slots.find(s=>s.state==='occupied'&&s.name==='Loaned battery');
- const original=slots.find(s=>s.id===originalReservation.slotId);
- if(loaned){loaned.state='empty';loaned.name='Return bay';loaned.charge=0}
- if(original){original.state='ready';original.name='Your original · ready';original.charge=100}
- originalReservation=null;renderSlots();
- result.innerHTML='<div class="result-title" style="color:var(--green)">✓ Original battery reclaimed</div>';
- toast('Original battery released','PIN matched.');
-}
-
 document.getElementById('bookingForm').addEventListener('submit',e=>{
  e.preventDefault();
  
@@ -451,7 +450,6 @@ document.getElementById('bookingForm').addEventListener('submit',e=>{
  ready.state='reserved';ready.name='Held · '+name;
  renderSlots();
 
- // Pass the selected time from the dropdown!
  reserveSlot('Parul', secs);
 });
 
