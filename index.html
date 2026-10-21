@@ -14,17 +14,14 @@
 
 <style>
 :root{--bg:#080d0c;--panel:#101917;--panel2:#141f1c;--line:#263630;--muted:#91a49c;--text:#edf7f1;--green:#b7ff63;--green2:#72d84d;--cyan:#67e8d3;--amber:#ffca70;--red:#ff7c7c;--radius:18px;--shadow:0 20px 70px #0005}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% -20%,#18392d 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{max-width:1240px;margin:auto;padding:0 28px}.topbar{height:76px;border-bottom:1px solid #ffffff0d;display:flex;align-items:center;position:sticky;top:0;z-index:20;background:#080d0ce8;backdrop-filter:blur(18px)}.nav{display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px}.brand{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:800;letter-spacing:-.6px}.brandmark{width:35px;height:35px;border-radius:11px;background:var(--green);color:#101710;display:grid;place-items:center;box-shadow:0 0 28px #b7ff6333}.brandmark svg{width:21px}.brand span em{font-style:normal;color:var(--green)}.navlinks{display:flex;gap:28px;color:#a8b8b0;font-size:13px}.navlinks a:hover{color:var(--green)}.navright{display:flex;align-items:center;gap:12px}.status-pill{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:99px;color:#c7d4ce;font-size:12px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}.btn{border:0;border-radius:11px;padding:12px 17px;font-weight:750;font-size:13px;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:9px}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--green);color:#0a1209;box-shadow:0 8px 28px #b7ff6318}.btn-primary:hover{background:#c9ff8c}.btn-ghost{border:1px solid #34463e;background:#111b17;color:#e5f3eb}.btn-ghost:hover{border-color:#6d9b70}.btn-small{padding:8px 11px;font-size:12px;border-radius:99px}.hero{padding:76px 0 54px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:42px}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:1.8px;font-weight:800}.eyebrow:before{content:"";height:1px;width:24px;background:var(--green)}h1{font-size:clamp(42px,5vw,68px);line-height:1.02;letter-spacing:-3.4px;margin:20px 0 20px;max-width:650px}h1 .accent{color:var(--green)}.hero-copy{max-width:530px;color:#a5b6ad;font-size:16px;line-height:1.75}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:27px 0 29px}.trustline{display:flex;align-items:center;gap:12px;color:#879990;font-size:12px}.avatars{display:flex}.avatar{height:27px;width:27px;border:2px solid var(--bg);border-radius:50%;margin-left:-7px;background:#243d31;display:grid;place-items:center;font-size:10px}.avatar:first-child{margin-left:0}.trustline strong{color:#d7e5dc}.hero-art{position:relative;min-height:430px;display:grid;place-items:center}.halo{position:absolute;width:390px;height:390px;border:1px solid #b7ff6318;border-radius:50%;box-shadow:0 0 90px #70dc4b0a,inset 0 0 90px #70dc4b08}.halo:before,.halo:after{content:"";position:absolute;border:1px solid #b7ff6317;border-radius:50%;inset:32px}.halo:after{inset:70px}.kiosk{position:relative;width:270px;height:355px;padding:19px 17px 16px;border:1px solid #3b5548;border-radius:22px;background:linear-gradient(145deg,#26352e,#101714 62%);box-shadow:0 35px 75px #000b,0 0 50px #a5ff5d0c;transform:perspective(800px) rotateY(-8deg)}.kiosk:before{content:"";position:absolute;left:-11px;top:17px;bottom:17px;width:11px;border-radius:7px 0 0 7px;background:#1a2821;border:1px solid #30463a;border-right:0}.kiosk-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.mini-brand{font-size:10px;font-weight:900;letter-spacing:1.5px}.mini-brand b{color:var(--green)}.led{width:6px;height:6px;background:var(--green);border-radius:50%;box-shadow:0 0 10px var(--green)}.kiosk-screen{border:1px solid #375443;border-radius:10px;background:#08110d;padding:12px;margin-bottom:14px}.screen-label{color:#6d8d78;font-size:8px;letter-spacing:1.2px}.screen-big{font-size:19px;font-weight:800;letter-spacing:-.5px;margin-top:4px}.screen-line{display:flex;justify-content:space-between;font-size:8px;color:#8da99a;margin-top:9px}.screen-bar{height:4px;border-radius:9px;background:#24362b;margin-top:5px;overflow:hidden}.screen-bar span{display:block;height:100%;width:78%;background:var(--green);box-shadow:0 0 9px var(--green)}.slot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.mini-slot{height:43px;border:1px solid #34483c;background:linear-gradient(135deg,#18251d,#0d1511);border-radius:7px;display:flex;align-items:center;justify-content:center;gap:7px}.mini-slot .battery{height:21px;width:12px;border:1px solid #63806b;border-radius:3px;position:relative}.mini-slot .battery:before{content:"";position:absolute;top:-4px;left:3px;width:4px;height:3px;background:#63806b}.mini-slot .battery:after{content:"";position:absolute;left:2px;right:2px;bottom:2px;height:65%;background:var(--green);border-radius:1px}.mini-slot:nth-child(2) .battery:after,.mini-slot:nth-child(5) .battery:after{height:35%;background:var(--amber)}.mini-slot span{font-size:8px;color:#b4c7b8}.kiosk-bottom{display:flex;align-items:center;justify-content:space-between;color:#7b9183;font-size:8px;margin-top:13px}.kiosk-bottom b{color:var(--green);font-size:9px}.float-card{position:absolute;border:1px solid #33493c;background:#111b17ee;box-shadow:var(--shadow);border-radius:13px;padding:12px 14px;backdrop-filter:blur(10px)}.float-card .small{font-size:10px;color:#90a49a}.float-card .big{font-size:19px;font-weight:800;letter-spacing:-.5px}.float-card .big span{font-size:10px;color:var(--green);font-weight:600}.float-one{top:72px;right:-1px}.float-two{bottom:62px;left:-2px}.float-icon{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#263a27;color:var(--green);margin-right:7px;vertical-align:middle}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 64px}.metric{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#111b17,#0c1310);padding:20px 21px}.metric .label{color:#91a49a;font-size:11px}.metric .value{font-size:28px;font-weight:800;letter-spacing:-1px;margin:5px 0}.metric .note{font-size:11px;color:#7e9588}.metric .value em{font-style:normal;color:var(--green)}.section{padding:44px 0 74px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:26px}.section-kicker{color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:1.6px;font-weight:800}.section h2{font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-1.5px;margin:9px 0 0}.section-desc{max-width:430px;color:#91a49a;font-size:13px}.dashboard{display:grid;grid-template-columns:1.15fr .85fr;gap:17px}.panel{background:linear-gradient(145deg,#121c18,#0d1411);border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:0 12px 45px #0001}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}.panel-title{font-size:15px;font-weight:800}.panel-sub{font-size:11px;color:#83968b;margin-top:3px}.live-label{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--green);border:1px solid #3c5938;background:#172519;border-radius:99px;padding:6px 9px}.slot-legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:17px;color:#93a69a;font-size:10px}.legend-item{display:flex;align-items:center;gap:6px}.legend-dot{width:7px;height:7px;border-radius:2px}.slot-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.slot{border:1px solid #2c4035;background:#0c1410;border-radius:12px;min-height:106px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;position:relative;overflow:hidden;transition:.2s}.slot:after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,#ffffff04,transparent);pointer-events:none}.slot .slot-num{font-size:9px;color:#80958a;letter-spacing:.6px}.slot .slot-name{font-size:10px;font-weight:700;text-align:center}.slot .slot-state{font-size:9px;color:#7e9588}.slot-icon{width:24px;height:30px;border:1.5px solid #526b5b;border-radius:5px;position:relative}.slot-icon:before{content:"";position:absolute;top:-4px;left:7px;width:7px;height:3px;background:#526b5b;border-radius:2px}.slot-icon:after{content:"";position:absolute;left:3px;right:3px;bottom:3px;height:var(--fill,70%);background:var(--slot-color,var(--green));border-radius:2px;opacity:.9}.slot.ready{border-color:#456b3a;background:#142018}.slot.ready .slot-icon{border-color:var(--green)}.slot.ready .slot-state{color:var(--green)}.slot.charging{border-color:#65512f}.slot.charging .slot-icon{border-color:var(--amber)}.slot.charging .slot-icon:after{background:var(--amber)}.slot.reserved{border-color:#315c59}.slot.reserved .slot-icon{border-color:var(--cyan)}.slot.reserved .slot-icon:after{background:var(--cyan)}.slot.empty .slot-icon{opacity:.32}.slot-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.flow-list{display:flex;flex-direction:column;gap:12px}.flow-step{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #ffffff0a}.flow-step:last-child{border-bottom:0}.step-num{width:29px;height:29px;border-radius:9px;background:#1e3024;color:var(--green);display:grid;place-items:center;font-size:11px;font-weight:800;flex-shrink:0}.flow-step b{display:block;font-size:12px;margin:1px 0 3px}.flow-step p{margin:0;color:#8fa398;font-size:11px;line-height:1.55}.sim-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:17px}.form-row{display:grid;grid-template-columns:1fr;gap:10px}.field{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}.field label{font-size:11px;color:#a8b8af;font-weight:700}.field input,.field select{width:100%;border:1px solid #2e4438;background:#09110d;color:#e8f4ec;border-radius:10px;padding:12px;outline:none}.field input:focus,.field select:focus{border-color:#83bd5a;box-shadow:0 0 0 3px #b7ff6310}.field input::placeholder{color:#52665a}.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-top:1px solid #ffffff0b;border-bottom:1px solid #ffffff0b;margin:3px 0 15px;gap:12px}.toggle-copy b{display:block;font-size:12px}.toggle-copy span{font-size:10px;color:#879a8e}.switch{position:relative;width:39px;height:22px;flex-shrink:0}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;inset:0;border-radius:99px;background:#2a3b30;cursor:pointer;transition:.2s}.slider:before{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;border-radius:50%;background:#8ca195;transition:.2s}.switch input:checked+.slider{background:#507c35}.switch input:checked+.slider:before{transform:translateX(17px);background:var(--green)}.result-box{border:1px solid #36523b;background:linear-gradient(120deg,#17261a,#111a15);border-radius:13px;padding:15px;margin-top:15px;display:none}.result-box.show{display:block;animation:fade .25s ease}.result-title{font-weight:800;font-size:13px;display:flex;align-items:center;gap:8px}.result-copy{font-size:11px;color:#a0b2a6;margin-top:6px}.result-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}.tag{font-size:10px;padding:5px 8px;border:1px solid #344b39;background:#0c1510;border-radius:6px;color:#c2d5c7}.sim-panel{display:flex;flex-direction:column}.sim-top{display:flex;justify-content:space-between;align-items:start;gap:12px}.battery-hero{border:1px solid #2c4234;border-radius:14px;background:radial-gradient(ellipse at 50% 0%,#243d27,#0d1510 75%);min-height:190px;display:flex;align-items:center;justify-content:center;gap:28px;margin:4px 0 18px;padding:20px}.big-battery{width:67px;height:110px;border:2px solid #77966d;border-radius:10px;position:relative;padding:7px;box-shadow:0 0 35px #b7ff6310}.big-battery:before{content:"";position:absolute;top:-8px;left:22px;width:20px;height:6px;background:#77966d;border-radius:3px 3px 0 0}.battery-level{position:absolute;bottom:7px;left:7px;right:7px;height:72%;border-radius:3px;background:linear-gradient(0deg,#68c63f,#c3ff6d);box-shadow:0 0 20px #b7ff6340}.battery-copy .percent{font-size:36px;font-weight:850;letter-spacing:-1.5px}.battery-copy .percent small{font-size:13px;color:var(--green)}.battery-copy .sub{font-size:11px;color:#91a49a}.battery-copy .health{margin-top:10px;font-size:10px;color:#c5d4ca}.battery-copy .health b{color:var(--green)}.sim-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.sim-stat{border:1px solid #26392e;border-radius:11px;padding:12px}.sim-stat span{display:block;font-size:10px;color:#8ba093}.sim-stat b{display:block;font-size:16px;margin-top:4px}.booking-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.booking-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#121c18,#0c1310);padding:20px}.booking-icon{height:39px;width:39px;display:grid;place-items:center;border-radius:12px;background:#203322;color:var(--green);margin-bottom:18px}.booking-card h3{font-size:15px;margin:0 0 8px}.booking-card p{font-size:12px;color:#91a49a;min-height:55px;margin:0 0 15px}.booking-card .card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #ffffff0c;padding-top:13px;color:#90a399;font-size:10px}.price{font-size:14px;font-weight:800;color:#eff9f2}.price small{font-size:10px;font-weight:500;color:#91a49a}.reservation-layout{display:grid;grid-template-columns:1fr 1fr;gap:17px}.timeline{display:flex;flex-direction:column;gap:0}.timeline-row{display:grid;grid-template-columns:80px 18px 1fr;gap:10px;min-height:65px}.timeline-time{font-size:10px;color:#879b8f;padding-top:3px}.timeline-line{display:flex;flex-direction:column;align-items:center}.timeline-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 10px #b7ff6344;z-index:1}.timeline-stem{width:1px;flex:1;background:#314337}.timeline-row:last-child .timeline-stem{display:none}.timeline-copy b{font-size:12px;display:block}.timeline-copy p{font-size:10px;color:#879b8f;margin:4px 0 0}.callout{border:1px solid #5b4a2c;background:#211b11;border-radius:12px;padding:14px;display:flex;gap:10px;margin-top:14px}.callout-icon{color:var(--amber);font-size:18px}.callout p{font-size:11px;color:#c8b99c;margin:0}.callout b{color:#ffdda0}.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.feature{padding:20px;border:1px solid var(--line);border-radius:15px;background:#101815}.feature-icon{color:var(--green);margin-bottom:14px}.feature h3{font-size:13px;margin:0 0 8px}.feature p{font-size:11px;color:#8da095;margin:0;line-height:1.65}.architecture{display:grid;grid-template-columns:1fr 1fr;gap:17px}.arch-list{display:flex;flex-direction:column;gap:10px}.arch-item{display:flex;gap:12px;padding:12px;border:1px solid #26382e;background:#0c1410;border-radius:11px}.arch-status{height:8px;width:8px;border-radius:50%;margin-top:6px;flex-shrink:0}.arch-item b{font-size:12px;display:block}.arch-item p{font-size:10px;color:#8fa197;margin:3px 0 0}.demo-badge{display:inline-flex;gap:7px;align-items:center;font-size:10px;color:var(--amber);border:1px solid #57482b;background:#241e12;border-radius:7px;padding:6px 9px}.footer{border-top:1px solid #ffffff10;padding:30px 0 36px;color:#7f9287;font-size:11px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer strong{color:#c6d7cb}.toast{position:fixed;right:22px;bottom:22px;z-index:60;max-width:340px;padding:14px 17px;border:1px solid #3d5c40;background:#142219;border-radius:13px;box-shadow:var(--shadow);font-size:12px;display:none}.toast.show{display:block;animation:fade .2s ease}.toast b{display:block;color:var(--green);margin-bottom:3px}.modal-backdrop{position:fixed;inset:0;z-index:50;background:#000a;backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}.modal-backdrop.show{display:flex}.modal{width:min(480px,100%);border:1px solid #385040;border-radius:18px;background:#101a15;padding:24px;box-shadow:0 30px 100px #0009}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modal h3{margin:0;font-size:19px}.close{background:#1c2a21;border:1px solid #304337;color:#cfe0d3;border-radius:8px;width:31px;height:31px}.modal p{font-size:12px;color:#9aada1}.modal-actions{display:flex;gap:9px;justify-content:flex-end;margin-top:16px}.disclaimer{font-size:10px;color:#82958a;line-height:1.6;margin-top:13px}.mobile-menu{display:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% -20%,#18392d 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{max-width:1240px;margin:auto;padding:0 28px}.topbar{height:76px;border-bottom:1px solid #ffffff0d;display:flex;align-items:center;position:sticky;top:0;z-index:20;background:#080d0ce8;backdrop-filter:blur(18px)}.nav{display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px}.brand{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:800;letter-spacing:-.6px}.brandmark{width:35px;height:35px;border-radius:11px;background:var(--green);color:#101710;display:grid;place-items:center;box-shadow:0 0 28px #b7ff6333}.brandmark svg{width:21px}.brand span em{font-style:normal;color:var(--green)}.navlinks{display:flex;gap:28px;color:#a8b8b0;font-size:13px}.navlinks a:hover{color:var(--green)}.navright{display:flex;align-items:center;gap:12px}.status-pill{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:99px;color:#c7d4ce;font-size:12px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}.btn{border:0;border-radius:11px;padding:12px 17px;font-weight:750;font-size:13px;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:9px}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--green);color:#0a1209;box-shadow:0 8px 28px #b7ff6318}.btn-primary:hover{background:#c9ff8c}.btn-ghost{border:1px solid #34463e;background:#111b17;color:#e5f3eb}.btn-ghost:hover{border-color:#6d9b70}.btn-small{padding:8px 11px;font-size:12px;border-radius:99px}.hero{padding:76px 0 54px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:42px}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:1.8px;font-weight:800}.eyebrow:before{content:"";height:1px;width:24px;background:var(--green)}h1{font-size:clamp(42px,5vw,68px);line-height:1.02;letter-spacing:-3.4px;margin:20px 0 20px;max-width:650px}h1 .accent{color:var(--green)}.hero-copy{max-width:530px;color:#a5b6ad;font-size:16px;line-height:1.75}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:27px 0 29px}.trustline{display:flex;align-items:center;gap:12px;color:#879990;font-size:12px}.avatars{display:flex}.avatar{height:27px;width:27px;border:2px solid var(--bg);border-radius:50%;margin-left:-7px;background:#243d31;display:grid;place-items:center;font-size:10px}.avatar:first-child{margin-left:0}.trustline strong{color:#d7e5dc}.hero-art{position:relative;min-height:430px;display:grid;place-items:center}.halo{position:absolute;width:390px;height:390px;border:1px solid #b7ff6318;border-radius:50%;box-shadow:0 0 90px #70dc4b0a,inset 0 0 90px #70dc4b08}.halo:before,.halo:after{content:"";position:absolute;border:1px solid #b7ff6317;border-radius:50%;inset:32px}.halo:after{inset:70px}.kiosk{position:relative;width:270px;height:355px;padding:19px 17px 16px;border:1px solid #3b5548;border-radius:22px;background:linear-gradient(145deg,#26352e,#101714 62%);box-shadow:0 35px 75px #000b,0 0 50px #a5ff5d0c;transform:perspective(800px) rotateY(-8deg)}.kiosk:before{content:"";position:absolute;left:-11px;top:17px;bottom:17px;width:11px;border-radius:7px 0 0 7px;background:#1a2821;border:1px solid #30463a;border-right:0}.kiosk-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.mini-brand{font-size:10px;font-weight:900;letter-spacing:1.5px}.mini-brand b{color:var(--green)}.led{width:6px;height:6px;background:var(--green);border-radius:50%;box-shadow:0 0 10px var(--green)}.kiosk-screen{border:1px solid #375443;border-radius:10px;background:#08110d;padding:12px;margin-bottom:14px}.screen-label{color:#6d8d78;font-size:8px;letter-spacing:1.2px}.screen-big{font-size:19px;font-weight:800;letter-spacing:-.5px;margin-top:4px}.screen-line{display:flex;justify-content:space-between;font-size:8px;color:#8da99a;margin-top:9px}.screen-bar{height:4px;border-radius:99px;background:#24362b;margin-top:5px;overflow:hidden}.screen-bar span{display:block;height:100%;width:78%;background:var(--green);box-shadow:0 0 9px var(--green)}.slot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.mini-slot{height:43px;border:1px solid #34483c;background:linear-gradient(135deg,#18251d,#0d1511);border-radius:7px;display:flex;align-items:center;justify-content:center;gap:7px}.mini-slot .battery{height:21px;width:12px;border:1px solid #63806b;border-radius:3px;position:relative}.mini-slot .battery:before{content:"";position:absolute;top:-4px;left:3px;width:4px;height:3px;background:#63806b}.mini-slot .battery:after{content:"";position:absolute;left:2px;right:2px;bottom:2px;height:65%;background:var(--green);border-radius:1px}.mini-slot:nth-child(2) .battery:after{height:35%;background:var(--amber)}.mini-slot span{font-size:8px;color:#b4c7b8}.kiosk-bottom{display:flex;align-items:center;justify-content:space-between;color:#7b9183;font-size:8px;margin-top:13px}.kiosk-bottom b{color:var(--green);font-size:9px}.float-card{position:absolute;border:1px solid #33493c;background:#111b17ee;box-shadow:var(--shadow);border-radius:13px;padding:12px 14px;backdrop-filter:blur(10px)}.float-card .small{font-size:10px;color:#90a49a}.float-card .big{font-size:19px;font-weight:800;letter-spacing:-.5px}.float-card .big span{font-size:10px;color:var(--green);font-weight:600}.float-one{top:72px;right:-1px}.float-two{bottom:62px;left:-2px}.float-icon{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#263a27;color:var(--green);margin-right:7px;vertical-align:middle}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 64px}.metric{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#111b17,#0c1310);padding:20px 21px}.metric .label{color:#91a49a;font-size:11px}.metric .value{font-size:28px;font-weight:800;letter-spacing:-1px;margin:5px 0}.metric .note{font-size:11px;color:#7e9588}.metric .value em{font-style:normal;color:var(--green)}.section{padding:44px 0 74px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:26px}.section-kicker{color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:1.6px;font-weight:800}.section h2{font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-1.5px;margin:9px 0 0}.section-desc{max-width:430px;color:#91a49a;font-size:13px}.dashboard{display:grid;grid-template-columns:1.15fr .85fr;gap:17px}.panel{background:linear-gradient(145deg,#121c18,#0d1411);border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:0 12px 45px #0001}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}.panel-title{font-size:15px;font-weight:800}.panel-sub{font-size:11px;color:#83968b;margin-top:3px}.live-label{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--green);border:1px solid #3c5938;background:#172519;border-radius:99px;padding:6px 9px}.slot-legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:17px;color:#93a69a;font-size:10px}.legend-item{display:flex;align-items:center;gap:6px}.legend-dot{width:7px;height:7px;border-radius:2px}.slot-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.slot{border:1px solid #2c4035;background:#0c1410;border-radius:12px;min-height:106px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;position:relative;overflow:hidden;transition:.2s}.slot:after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,#ffffff04,transparent);pointer-events:none}.slot .slot-num{font-size:9px;color:#80958a;letter-spacing:.6px}.slot .slot-name{font-size:10px;font-weight:700;text-align:center}.slot .slot-state{font-size:9px;color:#7e9588}.slot-icon{width:24px;height:30px;border:1.5px solid #526b5b;border-radius:5px;position:relative}.slot-icon:before{content:"";position:absolute;top:-4px;left:7px;width:7px;height:3px;background:#526b5b;border-radius:2px}.slot-icon:after{content:"";position:absolute;left:3px;right:3px;bottom:3px;height:var(--fill,70%);background:var(--slot-color,var(--green));border-radius:2px;opacity:.9}.slot.ready{border-color:#456b3a;background:#142018}.slot.ready .slot-icon{border-color:var(--green)}.slot.ready .slot-state{color:var(--green)}.slot.charging{border-color:#65512f}.slot.charging .slot-icon{border-color:var(--amber)}.slot.charging .slot-icon:after{background:var(--amber)}.slot.reserved{border-color:#315c59}.slot.reserved .slot-icon{border-color:var(--cyan)}.slot.reserved .slot-icon:after{background:var(--cyan)}.slot.locked{border-color:#7c3131}.slot.locked .slot-icon{border-color:var(--red)}.slot.locked .slot-icon:after{background:var(--red)}.slot.empty .slot-icon{opacity:.32}.slot-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.flow-list{display:flex;flex-direction:column;gap:12px}.flow-step{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #ffffff0a}.flow-step:last-child{border-bottom:0}.step-num{width:29px;height:29px;border-radius:9px;background:#1e3024;color:var(--green);display:grid;place-items:center;font-size:11px;font-weight:800;flex-shrink:0}.flow-step b{display:block;font-size:12px;margin:1px 0 3px}.flow-step p{margin:0;color:#8fa398;font-size:11px;line-height:1.55}.sim-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:17px}.form-row{display:grid;grid-template-columns:1fr;gap:10px}.field{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}.field label{font-size:11px;color:#a8b8af;font-weight:700}.field input,.field select{width:100%;border:1px solid #2e4438;background:#09110d;color:#e8f4ec;border-radius:10px;padding:12px;outline:none}.field input:focus,.field select:focus{border-color:#83bd5a;box-shadow:0 0 0 3px #b7ff6310}.field input::placeholder{color:#52665a}.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-top:1px solid #ffffff0b;border-bottom:1px solid #ffffff0b;margin:3px 0 15px;gap:12px}.toggle-copy b{display:block;font-size:12px}.toggle-copy span{font-size:10px;color:#879a8e}.switch{position:relative;width:39px;height:22px;flex-shrink:0}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;inset:0;border-radius:99px;background:#2a3b30;cursor:pointer;transition:.2s}.slider:before{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;border-radius:50%;background:#8ca195;transition:.2s}.switch input:checked+.slider{background:#507c35}.switch input:checked+.slider:before{transform:translateX(17px);background:var(--green)}.result-box{border:1px solid #36523b;background:linear-gradient(120deg,#17261a,#111a15);border-radius:13px;padding:15px;margin-top:15px;display:none}.result-box.show{display:block;animation:fade .25s ease}.result-title{font-weight:800;font-size:13px;display:flex;align-items:center;gap:8px}.result-copy{font-size:11px;color:#a0b2a6;margin-top:6px}.sim-panel{display:flex;flex-direction:column}.sim-top{display:flex;justify-content:space-between;align-items:start;gap:12px}.battery-hero{border:1px solid #2c4234;border-radius:14px;background:radial-gradient(ellipse at 50% 0%,#243d27,#0d1510 75%);min-height:190px;display:flex;align-items:center;justify-content:center;gap:28px;margin:4px 0 18px;padding:20px}.big-battery{width:67px;height:110px;border:2px solid #77966d;border-radius:10px;position:relative;padding:7px;box-shadow:0 0 35px #b7ff6310}.big-battery:before{content:"";position:absolute;top:-8px;left:22px;width:20px;height:6px;background:#77966d;border-radius:3px 3px 0 0}.battery-level{position:absolute;bottom:7px;left:7px;right:7px;height:72%;border-radius:3px;background:linear-gradient(0deg,#68c63f,#c3ff6d);box-shadow:0 0 20px #b7ff6340}.battery-copy .percent{font-size:36px;font-weight:850;letter-spacing:-1.5px}.battery-copy .percent small{font-size:13px;color:var(--green)}.battery-copy .sub{font-size:11px;color:#91a49a}.battery-copy .health{margin-top:10px;font-size:10px;color:#c5d4ca}.battery-copy .health b{color:var(--green)}.sim-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.sim-stat{border:1px solid #26392e;border-radius:11px;padding:12px}.sim-stat span{display:block;font-size:10px;color:#8ba093}.sim-stat b{display:block;font-size:16px;margin-top:4px}.booking-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.booking-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#121c18,#0c1310);padding:20px}.booking-icon{height:39px;width:39px;display:grid;place-items:center;border-radius:12px;background:#203322;color:var(--green);margin-bottom:18px}.booking-card h3{font-size:15px;margin:0 0 8px}.booking-card p{font-size:12px;color:#91a49a;min-height:55px;margin:0 0 15px}.booking-card .card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #ffffff0c;padding-top:13px;color:#90a399;font-size:10px}.price{font-size:14px;font-weight:800;color:#eff9f2}.price small{font-size:10px;font-weight:500;color:#91a49a}.reservation-layout{display:grid;grid-template-columns:1fr 1fr;gap:17px}.timeline{display:flex;flex-direction:column;gap:0}.timeline-row{display:grid;grid-template-columns:80px 18px 1fr;gap:10px;min-height:65px}.timeline-time{font-size:10px;color:#879b8f;padding-top:3px}.timeline-line{display:flex;flex-direction:column;align-items:center}.timeline-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 10px #b7ff6344;z-index:1}.timeline-stem{width:1px;flex:1;background:#314337}.timeline-row:last-child .timeline-stem{display:none}.timeline-copy b{font-size:12px;display:block}.timeline-copy p{font-size:10px;color:#879b8f;margin:4px 0 0}.callout{border:1px solid #5b4a2c;background:#211b11;border-radius:12px;padding:14px;display:flex;gap:10px;margin-top:14px}.callout-icon{color:var(--amber);font-size:18px}.callout p{font-size:11px;color:#c8b99c;margin:0}.callout b{color:#ffdda0}.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.feature{padding:20px;border:1px solid var(--line);border-radius:15px;background:#101815}.feature-icon{color:var(--green);margin-bottom:14px}.feature h3{font-size:13px;margin:0 0 8px}.feature p{font-size:11px;color:#8da095;margin:0;line-height:1.65}.architecture{display:grid;grid-template-columns:1fr 1fr;gap:17px}.arch-list{display:flex;flex-direction:column;gap:10px}.arch-item{display:flex;gap:12px;padding:12px;border:1px solid #26382e;background:#0c1410;border-radius:11px}.arch-status{height:8px;width:8px;border-radius:50%;margin-top:6px;flex-shrink:0}.arch-item b{font-size:12px;display:block}.arch-item p{font-size:10px;color:#8fa197;margin:3px 0 0}.demo-badge{display:inline-flex;gap:7px;align-items:center;font-size:10px;color:var(--amber);border:1px solid #57482b;background:#241e12;border-radius:7px;padding:6px 9px}.footer{border-top:1px solid #ffffff10;padding:30px 0 36px;color:#7f9287;font-size:11px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer strong{color:#c6d7cb}.toast{position:fixed;right:22px;bottom:22px;z-index:60;max-width:340px;padding:14px 17px;border:1px solid #3d5c40;background:#142219;border-radius:13px;box-shadow:var(--shadow);font-size:12px;display:none}.toast.show{display:block;animation:fade .2s ease}.toast b{display:block;color:var(--green);margin-bottom:3px}.modal-backdrop{position:fixed;inset:0;z-index:50;background:#000a;backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}.modal-backdrop.show{display:flex}.modal{width:min(480px,100%);border:1px solid #385040;border-radius:18px;background:#101a15;padding:24px;box-shadow:0 30px 100px #0009}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modal h3{margin:0;font-size:19px}.close{background:#1c2a21;border:1px solid #304337;color:#cfe0d3;border-radius:8px;width:31px;height:31px}.modal p{font-size:12px;color:#9aada1}.modal-actions{display:flex;gap:9px;justify-content:flex-end;margin-top:16px}.disclaimer{font-size:10px;color:#82958a;line-height:1.6;margin-top:13px}
 @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
-/* Battery picker and nearby station explorer */
 .battery-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.battery-option{border:1px solid #2d4336;background:#0b130f;border-radius:12px;padding:13px 11px;text-align:left;color:var(--text);transition:.18s;position:relative}.battery-option:hover{border-color:#658d51;transform:translateY(-1px)}.battery-option.selected{border-color:var(--green);background:#17251a;box-shadow:inset 0 0 0 1px #b7ff6330}.battery-option.selected:after{content:"✓";position:absolute;right:9px;top:8px;color:var(--green);font-size:12px;font-weight:900}.battery-option .option-charge{font-size:23px;font-weight:850;letter-spacing:-1px;color:var(--green)}.battery-option .option-label{font-size:10px;color:#92a69a;margin-top:3px}.battery-option .option-health{font-size:10px;color:#c6d6cb;margin-top:10px}.battery-option .option-slot{font-size:9px;color:#81978a;margin-top:6px}.kiosk-filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kiosk-list{display:flex;flex-direction:column;gap:12px}.kiosk-card{display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center;border:1px solid var(--line);background:linear-gradient(120deg,#121c18,#0b130f);border-radius:14px;padding:16px;transition:.18s}.kiosk-card:hover{border-color:#4c6c4d}.kiosk-pin{height:54px;width:54px;border-radius:13px;background:#203322;color:var(--green);display:grid;place-items:center;font-size:23px;border:1px solid #38543a}.kiosk-name{font-size:14px;font-weight:800}.kiosk-address{font-size:11px;color:#91a49a;margin-top:3px}.kiosk-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.kiosk-tag{font-size:10px;border:1px solid #2d4235;border-radius:6px;padding:5px 7px;color:#b8cbbd;background:#0c1510}.kiosk-distance{text-align:right;font-size:16px;font-weight:850;color:var(--green);white-space:nowrap}.kiosk-distance small{display:block;font-size:10px;color:#8fa398;font-weight:500}.kiosk-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}.nearby-summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}.summary-chip{border:1px solid #2d4235;background:#0c1510;border-radius:99px;padding:9px 12px;font-size:11px;color:#a8baae}.summary-chip strong{color:var(--text)}.nearby-note{font-size:11px;color:#91a49a;margin-top:13px;line-height:1.65}.location-banner{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border:1px solid #5b4a2c;background:#211b11;border-radius:12px;margin-bottom:15px}.location-banner .icon{color:var(--amber);font-size:18px}.location-banner p{margin:0;font-size:11px;color:#c8b99c}.location-banner b{color:#ffdda0}
 @media(max-width:600px){.battery-options{grid-template-columns:1fr}.battery-option{display:grid;grid-template-columns:1fr auto;align-items:center}.battery-option .option-charge{grid-row:span 2}.battery-option .option-health{margin-top:0}.battery-option .option-slot{grid-column:2}.kiosk-card{grid-template-columns:46px 1fr;gap:11px;padding:12px}.kiosk-pin{width:44px;height:44px}.kiosk-card .kiosk-side{grid-column:2;display:flex;align-items:center;justify-content:space-between;gap:10px}.kiosk-distance{text-align:left}.kiosk-actions{margin-top:0}}
-
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:55px}.hero-art{min-height:390px;max-width:600px;width:100%;margin:auto}.metrics{grid-template-columns:repeat(2,1fr)}.dashboard,.sim-grid,.reservation-layout,.architecture{grid-template-columns:1fr}.booking-grid{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}.navlinks{gap:15px}.float-one{right:6%}.float-two{left:7%}}
 @media(max-width:600px){.wrap{padding:0 17px}.topbar{height:65px}.navlinks{display:none}.status-pill{display:none}.brand{font-size:17px}.hero{padding:42px 0 30px;gap:15px}h1{font-size:43px;letter-spacing:-2.3px}.hero-copy{font-size:14px}.hero-art{min-height:350px;transform:scale(.9);margin:-10px 0}.halo{width:310px;height:310px}.kiosk{transform:scale(.9) perspective(800px) rotateY(-8deg)}.float-one{right:-2px;top:45px}.float-two{left:-1px;bottom:40px}.metrics{gap:8px;margin-bottom:40px}.metric{padding:15px}.metric .value{font-size:24px}.section{padding:30px 0 45px}.section-head{align-items:start;flex-direction:column}.panel{padding:16px}.slot-layout{grid-template-columns:repeat(2,1fr)}.slot{min-height:94px}.slot:last-child{grid-column:auto}.booking-grid{grid-template-columns:1fr}.booking-card p{min-height:0}.feature-grid{grid-template-columns:1fr 1fr;gap:8px}.feature{padding:15px}.form-row{grid-template-columns:1fr}.battery-hero{gap:17px;padding:14px}.big-battery{width:55px;height:92px}.battery-copy .percent{font-size:29px}.sim-stats{gap:6px}.sim-stat{padding:9px}.sim-stat b{font-size:13px}.timeline-row{grid-template-columns:61px 18px 1fr}.footer-inner{align-items:flex-start;flex-direction:column}.navright .btn{padding:10px 12px}.section h2{letter-spacing:-1px}}
 
-/* VoltDock two-slot cleanup */
 :root{--radius:16px}
 .hero{padding-top:52px;padding-bottom:34px;gap:30px}
 .hero-art{min-height:360px}
@@ -39,359 +36,365 @@
 .slot{min-height:112px}
 @media(max-width:900px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){
-  .hero{padding-top:32px}
-  .hero-art{min-height:320px}
-  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .metric{padding:13px}
-  .section{padding:27px 0 38px}
-  .slot-layout{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero{padding-top:32px}
+  .hero-art{min-height:320px}
+  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .metric{padding:13px}
+  .section{padding:27px 0 38px}
+  .slot-layout{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
 </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="wrap nav">
-    <a class="brand" href="#home" aria-label="VoltDock home"><span class="brandmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span><span>volt<em>dock</em></span></a>
-    <nav class="navlinks"><a href="#kiosk">Kiosk</a><a href="#simulator">Swap simulator</a><a href="#booking">Reservations</a><a href="#nearby">Nearby kiosks</a><a href="#technology">Technology</a></nav>
-    <div class="navright"><div class="status-pill"><span class="dot"></span> Demo station online</div><button class="btn btn-primary btn-small" onclick="scrollToSection('simulator')">Try the demo <span>↗</span></button></div>
-  </div>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="VoltDock home"><span class="brandmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span><span>volt<em>dock</em></span></a>
+    <nav class="navlinks"><a href="#kiosk">Kiosk</a><a href="#simulator">Swap simulator</a><a href="#booking">Reservations</a><a href="#nearby">Nearby kiosks</a><a href="#technology">Technology</a></nav>
+    <div class="navright"><div class="status-pill"><span class="dot"></span> Demo station online</div><button class="btn btn-primary btn-small" onclick="scrollToSection('simulator')">Try the demo <span>↗</span></button></div>
+  </div>
 </header>
 <main>
 <section class="wrap hero" id="home">
-  <div>
-    <div class="eyebrow">The future of two-wheel mobility</div>
-    <h1>Charge less.<br><span class="accent">Ride more.</span></h1>
-    <p class="hero-copy">A smarter battery exchange network for electric two-wheelers. Swap a low battery for a charged one in minutes, reserve your original, or top up a spare while you ride.</p>
-    <div class="hero-actions"><button class="btn btn-primary" onclick="scrollToSection('simulator')">Explore battery swap <span>↗</span></button><button class="btn btn-ghost" onclick="scrollToSection('kiosk')"><span>▦</span> View live kiosk</button></div>
-    <div class="trustline"><div class="avatars"><span class="avatar">⚡</span><span class="avatar">♻</span><span class="avatar">↗</span></div><span><strong>One kiosk. Two slots.</strong> Built around your ride.</span></div>
-  </div>
-  <div class="hero-art" aria-label="VoltDock kiosk illustration">
-    <div class="halo"></div>
-    <div class="kiosk">
-      <div class="kiosk-top"><div class="mini-brand">VOLT<b>DOCK</b></div><span class="led"></span></div>
-      <div class="kiosk-screen"><div class="screen-label">STATION VD-010</div><div class="screen-big">Ready when you are.</div><div class="screen-line"><span>NETWORK STATUS</span><span style="color:#b7ff63">OPTIMAL</span></div><div class="screen-bar"><span></span></div></div>
-      <div class="slot-grid">
-        <div class="mini-slot"><div class="battery"></div><span>01 READY</span></div>
-        <div class="mini-slot"><div class="battery"></div><span>02 RETURN</span></div>
-      </div>
-      <div class="kiosk-bottom"><span>MODULAR BATTERY SYSTEM</span><b>● CONNECTED</b></div>
-    </div>
-    <div class="float-card float-one"><div class="small"><span class="float-icon">ϟ</span>Swap time</div><div class="big">~2 min <span>target</span></div></div>
-    <div class="float-card float-two"><div class="small">Charged batteries ready</div><div class="big"><span id="heroReady" style="font-size:25px;color:var(--green)">01</span> <span>/ 01 pickup slot</span></div></div>
-  </div>
+  <div>
+    <div class="eyebrow">The future of two-wheel mobility</div>
+    <h1>Charge less.<br><span class="accent">Ride more.</span></h1>
+    <p class="hero-copy">A smarter battery exchange network for electric two-wheelers. Swap a low battery for a charged one in minutes, reserve your original, or top up a spare while you ride.</p>
+    <div class="hero-actions"><button class="btn btn-primary" onclick="scrollToSection('simulator')">Explore battery swap <span>↗</span></button><button class="btn btn-ghost" onclick="scrollToSection('kiosk')"><span>▦</span> View live kiosk</button></div>
+    <div class="trustline"><div class="avatars"><span class="avatar">⚡</span><span class="avatar">♻</span><span class="avatar">↗</span></div><span><strong>One kiosk. Two slots.</strong> Built around your ride.</span></div>
+  </div>
+  <div class="hero-art" aria-label="VoltDock kiosk illustration">
+    <div class="halo"></div>
+    <div class="kiosk">
+      <div class="kiosk-top"><div class="mini-brand">VOLT<b>DOCK</b></div><span class="led"></span></div>
+      <div class="kiosk-screen"><div class="screen-label">STATION VD-010</div><div class="screen-big">Ready when you are.</div><div class="screen-line"><span>NETWORK STATUS</span><span style="color:#b7ff63">OPTIMAL</span></div><div class="screen-bar"><span></span></div></div>
+      <div class="slot-grid">
+        <div class="mini-slot"><div class="battery"></div><span>01 READY</span></div>
+        <div class="mini-slot"><div class="battery"></div><span>02 RETURN</span></div>
+      </div>
+      <div class="kiosk-bottom"><span>MODULAR BATTERY SYSTEM</span><b>● CONNECTED</b></div>
+    </div>
+    <div class="float-card float-one"><div class="small"><span class="float-icon">ϟ</span>Swap time</div><div class="big">~2 min <span>target</span></div></div>
+    <div class="float-card float-two"><div class="small">Charged batteries ready</div><div class="big"><span id="heroReady" style="font-size:25px;color:var(--green)">01</span> <span>/ 01 pickup slot</span></div></div>
+  </div>
 </section>
 <section class="wrap metrics" aria-label="Station summary">
-  <div class="metric"><div class="label">TOTAL SLOTS</div><div class="value">02<em>/02</em></div><div class="note">One compact footprint</div></div>
-  <div class="metric"><div class="label">READY TO SWAP</div><div class="value" id="metricReady">04</div><div class="note">Demo station inventory</div></div>
-  <div class="metric"><div class="label">DIRECT CHARGE</div><div class="value">00</div><div class="note">Return bay is not a charge bay</div></div>
-  <div class="metric"><div class="label">ACCESS CONTROL</div><div class="value"><em>PIN</em></div><div class="note">Reservation-ready concept</div></div>
+  <div class="metric"><div class="label">TOTAL SLOTS</div><div class="value">02<em>/02</em></div><div class="note">One compact footprint</div></div>
+  <div class="metric"><div class="label">READY TO SWAP</div><div class="value" id="metricReady">01</div><div class="note">Demo station inventory</div></div>
+  <div class="metric"><div class="label">DIRECT CHARGE</div><div class="value">00</div><div class="note">Return bay is not a charge bay</div></div>
+  <div class="metric"><div class="label">ACCESS CONTROL</div><div class="value"><em>PIN</em></div><div class="note">Reservation-ready concept</div></div>
 </section>
 <section class="wrap section" id="kiosk">
-  <div class="section-head"><div><div class="section-kicker">01 / Station overview</div><h2>Two slots. Every slot accounted for.</h2></div><p class="section-desc">Explore the 2-slot layout and simulate how inventory changes as batteries are swapped, returned, and charged.</p></div>
-  <div class="dashboard">
-    <div class="panel">
-      <div class="panel-head"><div><div class="panel-title">VD-001 · Prototype station</div><div class="panel-sub">Two-slot prototype · local demo state</div></div><div class="live-label"><span class="dot"></span> DEMO MODE</div></div>
-      <div class="slot-legend"><span class="legend-item"><i class="legend-dot" style="background:var(--green)"></i>Ready</span><span class="legend-item"><i class="legend-dot" style="background:var(--amber)"></i>Charging</span><span class="legend-item"><i class="legend-dot" style="background:var(--cyan)"></i>Reserved</span><span class="legend-item"><i class="legend-dot" style="background:#52675a"></i>Empty / return</span></div>
-      <div class="slot-layout" id="slotLayout"></div>
-      <div class="slot-actions"><button class="btn btn-primary btn-small" onclick="openModal('swap')">＋ Start a swap</button><button class="btn btn-ghost btn-small" onclick="resetDemo()">↻ Reset demo</button></div>
-    </div>
-    <div class="panel">
-      <div class="panel-head"><div><div class="panel-title">How a swap works</div><div class="panel-sub">Designed for quick, guided exchanges</div></div><span style="font-size:22px;color:var(--green)">↗</span></div>
-      <div class="flow-list">
-        <div class="flow-step"><div class="step-num">01</div><div><b>Identify your battery</b><p>Choose a compatible battery type and verify the returned pack's status.</p></div></div>
-        <div class="flow-step"><div class="step-num">02</div><div><b>Deposit & authenticate</b><p>A return compartment is assigned; a real kiosk would verify the pack and lock the door.</p></div></div>
-        <div class="flow-step"><div class="step-num">03</div><div><b>Collect a charged pack</b><p>The assigned pickup slot unlocks after validation and authorization.</p></div></div>
-        <div class="flow-step"><div class="step-num">04</div><div><b>Ride. Return. Repeat.</b><p>Return the borrowed battery later, or use a PIN-linked original battery reservation.</p></div></div>
-      </div>
-    </div>
-  </div>
+  <div class="section-head"><div><div class="section-kicker">01 / Station overview</div><h2>Two slots. Every slot accounted for.</h2></div><p class="section-desc">Explore the 2-slot layout and simulate how inventory changes as batteries are swapped, returned, and charged.</p></div>
+  <div class="dashboard">
+    <div class="panel">
+      <div class="panel-head"><div><div class="panel-title">VD-001 · Prototype station</div><div class="panel-sub">Two-slot prototype · local demo state</div></div><div class="live-label"><span class="dot"></span> DEMO MODE</div></div>
+      <div class="slot-legend"><span class="legend-item"><i class="legend-dot" style="background:var(--green)"></i>Ready</span><span class="legend-item"><i class="legend-dot" style="background:var(--amber)"></i>Charging</span><span class="legend-item"><i class="legend-dot" style="background:var(--cyan)"></i>Reserved</span><span class="legend-item"><i class="legend-dot" style="background:var(--red)"></i>Locked (User PIN)</span><span class="legend-item"><i class="legend-dot" style="background:#52675a"></i>Empty / return</span></div>
+      <div class="slot-layout" id="slotLayout"></div>
+      <div class="slot-actions"><button class="btn btn-primary btn-small" onclick="openModal('swap')">＋ Start a swap</button><button class="btn btn-ghost btn-small" onclick="resetDemo()">↻ Reset demo</button></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><div class="panel-title">How a swap works</div><div class="panel-sub">Designed for quick, guided exchanges</div></div><span style="font-size:22px;color:var(--green)">↗</span></div>
+      <div class="flow-list">
+        <div class="flow-step"><div class="step-num">01</div><div><b>Identify your battery</b><p>Choose a compatible battery type and verify the returned pack's status.</p></div></div>
+        <div class="flow-step"><div class="step-num">02</div><div><b>Deposit & authenticate</b><p>A return compartment is assigned; a real kiosk would verify the pack and lock the door.</p></div></div>
+        <div class="flow-step"><div class="step-num">03</div><div><b>Collect a charged pack</b><p>The assigned pickup slot unlocks after validation and authorization.</p></div></div>
+        <div class="flow-step"><div class="step-num">04</div><div><b>Ride. Return. Repeat.</b><p>Return the borrowed battery later, or use a PIN-linked original battery reservation.</p></div></div>
+      </div>
+    </div>
+  </div>
 </section>
 <section class="wrap section" id="simulator">
-  <div class="section-head"><div><div class="section-kicker">02 / Interactive prototype</div><h2>Your swap, your way.</h2></div><p class="section-desc">Run through the rider journey. This demo updates this browser and writes active OTP codes directly to Firebase Realtime Database for ESP32 unlocking.</p></div>
-  <div class="sim-grid">
-    <div class="panel">
-      <div class="panel-head"><div><div class="panel-title">Start a battery swap</div><div class="panel-sub">Rider journey simulator</div></div><span class="demo-badge">DEMO MODE</span></div>
-      <form id="swapForm">
-        <div class="field"><label for="batteryType">Battery compatibility</label><select id="batteryType"><option value="VD-M1">VoltDock Modular M1</option><option value="VD-M2">VoltDock Modular M2</option><option value="VD-UNIV">Universal demo profile</option></select></div>
-        <div class="field" style="margin-top:2px"><label>Choose your replacement battery</label><div class="panel-sub">Select an available pack based on charge level. Your choice updates the swap simulation.</div></div>
-        <div class="battery-options" id="batteryOptions" role="group" aria-label="Available replacement batteries">
-          <button type="button" class="battery-option selected" data-battery="1" onclick="selectBattery(1)"><div class="option-charge">100%</div><div class="option-label">Fully charged</div><div class="option-health">Health · 98%</div><div class="option-slot">Slot 01 · M1</div></button>
-        </div>
-        <div class="form-row">
-          <div class="field"><label for="currentCharge">Your battery charge</label><select id="currentCharge"><option value="8">8% · Critical</option><option value="15" selected>15% · Low</option><option value="25">25% · Low</option><option value="40">40% · Moderate</option></select></div>
-        </div>
-        <div class="toggle-row"><div class="toggle-copy"><b>Reserve my original battery</b><span>Return later with a PIN to reclaim it</span></div><label class="switch"><input id="reserveOriginal" type="checkbox" checked><span class="slider"></span></label></div>
-        <div class="field" id="pinField"><label for="reservePin">Create a 4-digit demo PIN</label><input id="reservePin" inputmode="numeric" maxlength="4" placeholder="e.g. 2048" value="2048" pattern="[0-9]{4}"></div>
-        <button class="btn btn-primary" style="width:100%" type="submit">Simulate battery swap <span>→</span></button>
-      </form>
-      <div class="result-box" id="swapResult" role="status" aria-live="polite"></div>
-      <div class="disclaimer">Demo only: PINs are stored on Realtime Database for physical hardware demo verification.</div>
-    </div>
-    <div class="panel sim-panel">
-      <div class="sim-top"><div><div class="panel-title">Battery health & energy</div><div class="panel-sub">Illustrative telemetry · not a real battery reading</div></div><span class="live-label"><span class="dot"></span> DEMO DATA</span></div>
-      <div class="battery-hero"><div class="big-battery"><div class="battery-level" id="batteryLevel"></div></div><div class="battery-copy"><div class="percent"><span id="batteryPercent">15</span><small>% charge</small></div><div class="sub">Current rider battery</div><div class="health">Battery health <b>94%</b> · Profile M1</div></div></div>
-      <div class="sim-stats">
-        <div class="sim-stat"><span>EST. RANGE</span><b id="rangeValue">12 km</b></div>
-        <div class="sim-stat"><span>CHARGE TIME</span><b id="chargeTime">~42 min</b></div>
-        <div class="sim-stat"><span>ACCESS METHOD</span><b>OTP Keypad</b></div>
-      </div>
-      <div style="margin-top:16px;padding:13px;border:1px solid #2c4034;border-radius:12px;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--green);font-size:18px">✳</span><div><b style="font-size:12px">Designed around battery health</b><div style="font-size:11px;color:#8fa398;margin-top:4px">A production system should check pack compatibility, temperature, state of health, and charge before releasing a battery.</div></div></div>
-    </div>
-  </div>
+  <div class="section-head"><div><div class="section-kicker">02 / Interactive prototype</div><h2>Your swap, your way.</h2></div><p class="section-desc">Run through the rider journey. This demo updates this browser and writes active OTP codes directly to Firebase Realtime Database for ESP32 unlocking.</p></div>
+  <div class="sim-grid">
+    <div class="panel">
+      <div class="panel-head"><div><div class="panel-title">Start a battery swap</div><div class="panel-sub">Rider journey simulator</div></div><span class="demo-badge">DEMO MODE</span></div>
+      <form id="swapForm">
+        <div class="field"><label for="batteryType">Battery compatibility</label><select id="batteryType"><option value="VD-M1">VoltDock Modular M1</option><option value="VD-M2">VoltDock Modular M2</option><option value="VD-UNIV">Universal demo profile</option></select></div>
+        <div class="field" style="margin-top:2px"><label>Choose your replacement battery</label><div class="panel-sub">Select an available pack based on charge level. Your choice updates the swap simulation.</div></div>
+        <div class="battery-options" id="batteryOptions" role="group" aria-label="Available replacement batteries">
+          <button type="button" class="battery-option selected" data-battery="1" onclick="selectBattery(1)"><div class="option-charge">100%</div><div class="option-label">Fully charged</div><div class="option-health">Health · 98%</div><div class="option-slot">Slot 01 · M1</div></button>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="currentCharge">Your battery charge</label><select id="currentCharge"><option value="8">8% · Critical</option><option value="15" selected>15% · Low</option><option value="25">25% · Low</option><option value="40">40% · Moderate</option></select></div>
+        </div>
+        <div class="toggle-row"><div class="toggle-copy"><b>Reserve my original battery</b><span>Return later with a PIN to reclaim it</span></div><label class="switch"><input id="reserveOriginal" type="checkbox" checked><span class="slider"></span></label></div>
+        <div class="field" id="pinField"><label for="reservePin">Create a 4-digit demo PIN</label><input id="reservePin" inputmode="numeric" maxlength="4" placeholder="e.g. 2048" value="2048" pattern="[0-9]{4}"></div>
+        <button class="btn btn-primary" style="width:100%" type="submit">Simulate battery swap <span>→</span></button>
+      </form>
+      <div class="result-box" id="swapResult" role="status" aria-live="polite"></div>
+      <div class="disclaimer">Demo only: PINs are stored on Realtime Database for physical hardware demo verification.</div>
+    </div>
+    <div class="panel sim-panel">
+      <div class="sim-top"><div><div class="panel-title">Battery health & energy</div><div class="panel-sub">Illustrative telemetry · not a real battery reading</div></div><span class="live-label"><span class="dot"></span> DEMO DATA</span></div>
+      <div class="battery-hero"><div class="big-battery"><div class="battery-level" id="batteryLevel"></div></div><div class="battery-copy"><div class="percent"><span id="batteryPercent">15</span><small>% charge</small></div><div class="sub">Current rider battery</div><div class="health">Battery health <b>94%</b> · Profile M1</div></div></div>
+      <div class="sim-stats">
+        <div class="sim-stat"><span>EST. RANGE</span><b id="rangeValue">12 km</b></div>
+        <div class="sim-stat"><span>CHARGE TIME</span><b id="chargeTime">~42 min</b></div>
+        <div class="sim-stat"><span>ACCESS METHOD</span><b>OTP Keypad</b></div>
+      </div>
+      <div style="margin-top:16px;padding:13px;border:1px solid #2c4034;border-radius:12px;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--green);font-size:18px">✳</span><div><b style="font-size:12px">Designed around battery health</b><div style="font-size:11px;color:#8fa398;margin-top:4px">A production system should check pack compatibility, temperature, state of health, and charge before releasing a battery.</div></div></div>
+    </div>
+  </div>
 </section>
 
 <section class="wrap section" id="booking">
-  <div class="section-head"><div><div class="section-kicker">03 / Smart access</div><h2>Reserve ahead. Arrive ready.</h2></div><p class="section-desc">Avoid arriving to an empty station. A short grace window balances rider convenience with fair access for everyone.</p></div>
-  <div class="booking-grid">
-    <article class="booking-card"><div class="booking-icon">◷</div><h3>ETA-based booking</h3><p>Reserve one compatible charged battery and provide an estimated arrival time. Your slot stays held until the grace deadline.</p><div class="card-foot"><span>Hold window</span><span class="price">10 <small>min grace</small></span></div></article>
-    <article class="booking-card"><div class="booking-icon">⌌</div><h3>OTP Access</h3><p>Authenticate instantly on the physical kiosk keypad using the generated 4-digit OTP code.</p><div class="card-foot"><span>Access method</span><span class="price">Keypad <small>linked</small></span></div></article>
-    <article class="booking-card"><div class="booking-icon">ϟ</div><h3>Dual-battery charging</h3><p>Use one modular battery while your spare charges in the second slot when configured for charging.</p><div class="card-foot"><span>Prototype layout</span><span class="price">2 <small>total slots</small></span></div></article>
-  </div>
-  <div class="reservation-layout" style="margin-top:17px">
-    <div class="panel">
-      <div class="panel-head"><div><div class="panel-title">Book a battery</div><div class="panel-sub">Create a simulated reservation</div></div><span class="demo-badge">NO ACCOUNT REQUIRED</span></div>
-      <form id="bookingForm">
-        <div class="form-row"><div class="field"><label for="arrivalTime">Estimated arrival</label>
-        
-        <!-- NEW ETA DROPDOWN -->
-        <select id="arrivalTime">
-          <option value="10" selected>10 Seconds (Live Demo)</option>
-          <option value="60">In 1 minute</option>
-          <option value="120">In 2 minutes</option>
-          <option value="300">In 5 minutes</option>
-        </select>
-        
-        </div><div class="field"><label for="bookingBattery">Battery profile</label><select id="bookingBattery"><option>VoltDock M1</option><option>VoltDock M2</option><option>Universal demo</option></select></div></div>
-        <div class="field"><label for="bookingName">Rider label (optional)</label><input id="bookingName" placeholder="e.g. Rider 024"></div>
-        <button class="btn btn-primary" type="submit">Reserve a battery <span>→</span></button>
-      </form>
-      <div class="result-box" id="bookingResult" aria-live="polite"></div>
-    </div>
-    <div class="panel">
-      <div class="panel-head"><div><div class="panel-title">Reservation lifecycle</div><div class="panel-sub">Example policy for a fair queue</div></div><span style="color:var(--cyan);font-size:18px">◷</span></div>
-      <div class="timeline">
-        <div class="timeline-row"><div class="timeline-time">T − 10 min</div><div class="timeline-line"><span class="timeline-dot"></span><span class="timeline-stem"></span></div><div class="timeline-copy"><b>Reservation created</b><p>A compatible charged pack is temporarily assigned.</p></div></div>
-        <div class="timeline-row"><div class="timeline-time">Arrival</div><div class="timeline-line"><span class="timeline-dot"></span><span class="timeline-stem"></span></div><div class="timeline-copy"><b>Rider checks in</b><p>Reservation is confirmed at the kiosk with a code or app identity.</p></div></div>
-        <div class="timeline-row"><div class="timeline-time">+10 min</div><div class="timeline-line"><span class="timeline-dot" style="background:var(--amber);box-shadow:none"></span><span class="timeline-stem"></span></div><div class="timeline-copy"><b>Grace period ends</b><p>If the rider has not checked in, the hold expires.</p></div></div>
-        <div class="timeline-row"><div class="timeline-time">Next in queue</div><div class="timeline-line"><span class="timeline-dot" style="background:var(--cyan);box-shadow:none"></span><span class="timeline-stem"></span></div><div class="timeline-copy"><b>Battery released</b><p>The next eligible rider can claim the available pack.</p></div></div>
-      </div>
-      <div class="callout"><span class="callout-icon">ⓘ</span><p><b>Fair-use rule:</b> this prototype demonstrates the reservation policy and syncs with Firebase Realtime Database for ESP32 hardware access.</p></div>
-    </div>
-  </div>
+  <div class="section-head"><div><div class="section-kicker">03 / Smart access</div><h2>Reserve ahead. Arrive ready.</h2></div><p class="section-desc">Avoid arriving to an empty station. A short grace window balances rider convenience with fair access for everyone.</p></div>
+  <div class="booking-grid">
+    <article class="booking-card"><div class="booking-icon">◷</div><h3>ETA-based booking</h3><p>Reserve one compatible charged battery and provide an estimated arrival time. Your slot stays held until the grace deadline.</p><div class="card-foot"><span>Hold window</span><span class="price">10 <small>min grace</small></span></div></article>
+    <article class="booking-card"><div class="booking-icon">⌌</div><h3>OTP Access</h3><p>Authenticate instantly on the physical kiosk keypad using the generated 4-digit OTP code.</p><div class="card-foot"><span>Access method</span><span class="price">Keypad <small>linked</small></span></div></article>
+    <article class="booking-card"><div class="booking-icon">ϟ</div><h3>Dual-battery charging</h3><p>Use one modular battery while your spare charges in the second slot when configured for charging.</p><div class="card-foot"><span>Prototype layout</span><span class="price">2 <small>total slots</small></span></div></article>
+  </div>
+  <div class="reservation-layout" style="margin-top:17px">
+    <div class="panel">
+      <div class="panel-head"><div><div class="panel-title">Book a battery</div><div class="panel-sub">Create a simulated reservation</div></div><span class="demo-badge">GUEST ACCESS</span></div>
+      <form id="bookingForm">
+        <div class="form-row"><div class="field"><label for="arrivalTime">Estimated arrival</label>
+        <select id="arrivalTime">
+          <option value="10" selected>10 Seconds (Live Demo)</option>
+          <option value="60">In 1 minute</option>
+          <option value="120">In 2 minutes</option>
+          <option value="300">In 5 minutes</option>
+        </select>
+        </div><div class="field"><label for="bookingBattery">Battery profile</label><select id="bookingBattery"><option>VoltDock M1</option><option>VoltDock M2</option><option>Universal demo</option></select></div></div>
+        <div class="field"><label for="bookingName">Rider label (optional)</label><input id="bookingName" placeholder="e.g. Rider 024"></div>
+        <button class="btn btn-primary" type="submit" id="btnReserve">Reserve a battery <span>→</span></button>
+      </form>
+      <div class="result-box" id="bookingResult" aria-live="polite"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><div class="panel-title">Reservation lifecycle</div><div class="panel-sub">Example policy for a fair queue</div></div><span style="color:var(--cyan);font-size:18px">◷</span></div>
+      <div class="timeline">
+        <div class="timeline-row"><div class="timeline-time">T − 10 min</div><div class="timeline-line"><span class="timeline-dot"></span><span class="timeline-stem"></span></div><div class="timeline-copy"><b>Reservation created</b><p>A compatible charged pack is temporarily assigned.</p></div></div>
+        <div class="timeline-row"><div class="timeline-time">Arrival</div><div class="timeline-line"><span class="timeline-dot"></span><span class="timeline-stem"></span></div><div class="timeline-copy"><b>Rider checks in</b><p>Reservation is confirmed at the kiosk with a code or app identity.</p></div></div>
+        <div class="timeline-row"><div class="timeline-time">+10 min</div><div class="timeline-line"><span class="timeline-dot" style="background:var(--amber);box-shadow:none"></span><span class="timeline-stem"></span></div><div class="timeline-copy"><b>Grace period ends</b><p>If the rider has not checked in, the hold expires.</p></div></div>
+        <div class="timeline-row"><div class="timeline-time">Next in queue</div><div class="timeline-line"><span class="timeline-dot" style="background:var(--cyan);box-shadow:none"></span><span class="timeline-stem"></span></div><div class="timeline-copy"><b>Battery released</b><p>The next eligible rider can claim the available pack.</p></div></div>
+      </div>
+      <div class="callout"><span class="callout-icon">ⓘ</span><p><b>Fair-use rule:</b> this prototype demonstrates the reservation policy and syncs with Firebase Realtime Database for ESP32 hardware access.</p></div>
+    </div>
+  </div>
 </section>
 
 <section class="wrap section" id="nearby">
-  <div class="section-head"><div><div class="section-kicker">04 / Find a station</div><h2>Your next charge is closer than you think.</h2></div><p class="section-desc">Compare nearby VoltDock stations by distance, battery availability, and charging bays—then book a battery at the station that works for your route.</p></div>
-  <div class="panel">
-    <div class="panel-head"><div><div class="panel-title">Nearby VoltDock kiosks</div><div class="panel-sub">Sorted from nearest to farthest · illustrative station data</div></div><span class="demo-badge">DEMO LOCATIONS</span></div>
-    <div class="location-banner"><span class="icon">ⓘ</span><p><b>Location preview:</b> These are sample station names and distances for the prototype. The Parul University station links to the physical ESP32 demo.</p></div>
-    <div class="nearby-summary"><div class="summary-chip"><strong id="stationCount">2</strong> illustrative stations</div><div class="summary-chip"><strong id="totalReady">2</strong> sample batteries ready</div><div class="summary-chip"><strong>2 slots</strong> per demo kiosk</div></div>
-    <div class="kiosk-filters" style="margin-bottom:15px"><div class="field" style="margin:0;min-width:190px;flex:1"><label for="kioskFilter">Show stations</label><select id="kioskFilter"><option value="all">All stations</option><option value="available">Batteries available</option><option value="charging">Direct charging available</option></select></div><div class="field" style="margin:0;min-width:190px;flex:1"><label for="kioskSort">Sort by</label><select id="kioskSort"><option value="distance">Nearest first</option><option value="batteries">Most ready batteries</option></select></div></div>
-    <div class="kiosk-list" id="kioskList"></div>
-    <p class="nearby-note">Distances and estimated travel times are example values. Reserving at Parul Station writes a 4-digit OTP to Realtime Database for physical hardware demo verification.</p>
-  </div>
+  <div class="section-head"><div><div class="section-kicker">04 / Find a station</div><h2>Your next charge is closer than you think.</h2></div><p class="section-desc">Compare nearby VoltDock stations by distance, battery availability, and charging bays—then book a battery at the station that works for your route.</p></div>
+  <div class="panel">
+    <div class="panel-head"><div><div class="panel-title">Nearby VoltDock kiosks</div><div class="panel-sub">Sorted from nearest to farthest · illustrative station data</div></div><span class="demo-badge">DEMO LOCATIONS</span></div>
+    <div class="location-banner"><span class="icon">ⓘ</span><p><b>Location preview:</b> These are sample station names and distances for the prototype. The Parul University station links to the physical ESP32 demo.</p></div>
+    <div class="nearby-summary"><div class="summary-chip"><strong id="stationCount">2</strong> illustrative stations</div><div class="summary-chip"><strong id="totalReady">2</strong> sample batteries ready</div><div class="summary-chip"><strong>2 slots</strong> per demo kiosk</div></div>
+    <div class="kiosk-filters" style="margin-bottom:15px"><div class="field" style="margin:0;min-width:190px;flex:1"><label for="kioskFilter">Show stations</label><select id="kioskFilter"><option value="all">All stations</option><option value="available">Batteries available</option><option value="charging">Direct charging available</option></select></div><div class="field" style="margin:0;min-width:190px;flex:1"><label for="kioskSort">Sort by</label><select id="kioskSort"><option value="distance">Nearest first</option><option value="batteries">Most ready batteries</option></select></div></div>
+    <div class="kiosk-list" id="kioskList"></div>
+    <p class="nearby-note">Distances and estimated travel times are example values. Reserving at Parul Station writes a 4-digit OTP to Realtime Database for physical hardware demo verification.</p>
+  </div>
 </section>
 
 <section class="wrap section" id="technology">
-  <div class="section-head"><div><div class="section-kicker">05 / Built for smarter mobility</div><h2>Simple for riders. Intelligent underneath.</h2></div><p class="section-desc">VoltDock combines modular hardware with software-led access and inventory management.</p></div>
-  <div class="feature-grid">
-    <article class="feature"><div class="feature-icon">ϟ</div><h3>Quick battery exchange</h3><p>Compatible, pre-charged battery packs reduce rider downtime compared with waiting for a full charge.</p></article>
-    <article class="feature"><div class="feature-icon">⌑</div><h3>PIN-linked ownership</h3><p>A reservation flow can help a rider reclaim their original battery after it has finished charging.</p></article>
-    <article class="feature"><div class="feature-icon">◷</div><h3>Queue-aware booking</h3><p>ETA windows and automatic reservation expiry help prevent charged inventory from being held indefinitely.</p></article>
-    <article class="feature"><div class="feature-icon">♻</div><h3>Battery-aware charging</h3><p>Battery health, temperature, chemistry, and approved charge limits should guide real charging decisions.</p></article>
-  </div>
+  <div class="section-head"><div><div class="section-kicker">05 / Built for smarter mobility</div><h2>Simple for riders. Intelligent underneath.</h2></div><p class="section-desc">VoltDock combines modular hardware with software-led access and inventory management.</p></div>
+  <div class="feature-grid">
+    <article class="feature"><div class="feature-icon">ϟ</div><h3>Quick battery exchange</h3><p>Compatible, pre-charged battery packs reduce rider downtime compared with waiting for a full charge.</p></article>
+    <article class="feature"><div class="feature-icon">⌑</div><h3>PIN-linked ownership</h3><p>A reservation flow can help a rider reclaim their original battery after it has finished charging.</p></article>
+    <article class="feature"><div class="feature-icon">◷</div><h3>Queue-aware booking</h3><p>ETA windows and automatic reservation expiry help prevent charged inventory from being held indefinitely.</p></article>
+    <article class="feature"><div class="feature-icon">♻</div><h3>Battery-aware charging</h3><p>Battery health, temperature, chemistry, and approved charge limits should guide real charging decisions.</p></article>
+  </div>
 </section>
 
 <section class="wrap section" id="architecture">
-  <div class="section-head"><div><div class="section-kicker">06 / Implementation roadmap</div><h2>Prototype today. Integrate tomorrow.</h2></div><p class="section-desc">This front-end is connected to Firebase Realtime Database to drive physical keypad hardware.</p></div>
-  <div class="architecture">
-    <div class="panel">
-      <div class="panel-head"><div><div class="panel-title">Working in this prototype</div><div class="panel-sub">Available immediately in your browser</div></div><span class="live-label">READY</span></div>
-      <div class="arch-list">
-        <div class="arch-item"><span class="arch-status" style="background:var(--green)"></span><div><b>Responsive website UI</b><p>Desktop and mobile layouts, kiosk slots, metrics, and navigation.</p></div></div>
-        <div class="arch-item"><span class="arch-status" style="background:var(--green)"></span><div><b>Local & Cloud swap simulation</b><p>Demo form updates slot inventory and writes active OTP to Firebase.</p></div></div>
-        <div class="arch-item"><span class="arch-status" style="background:var(--green)"></span><div><b>Booking interaction</b><p>Creates an OTP reservation for ESP32 hardware authentication.</p></div></div>
-        <div class="arch-item"><span class="arch-status" style="background:var(--green)"></span><div><b>Resettable demo state</b><p>Reset kiosk inventory for repeatable judging and presentations.</p></div></div>
-      </div>
-    </div>
-    <div class="panel">
-      <div class="panel-head"><div><div class="panel-title">Required for real deployment</div><div class="panel-sub">Backend, electronics, and safety integration</div></div><span class="demo-badge">NEXT PHASE</span></div>
-      <div class="arch-list">
-        <div class="arch-item"><span class="arch-status" style="background:var(--amber)"></span><div><b>Backend & live database</b><p>Shared inventory, authentication, reservation expiry, audit logs, and concurrency handling.</p></div></div>
-        <div class="arch-item"><span class="arch-status" style="background:var(--amber)"></span><div><b>Kiosk controller & sensors</b><p>Door locks, slot sensors, battery identification, telemetry, and secure commands to hardware.</p></div></div>
-        <div class="arch-item"><span class="arch-status" style="background:var(--amber)"></span><div><b>Battery safety controls</b><p>Validated pack compatibility, BMS data, temperature limits, electrical isolation, and fault handling.</p></div></div>
-        <div class="arch-item"><span class="arch-status" style="background:var(--amber)"></span><div><b>PIN Verification</b><p>Server-side PIN verification, rate limiting, and access control.</p></div></div>
-      </div>
-    </div>
-  </div>
-  <p class="disclaimer">Engineering note: real battery swapping must use compatible packs and a professionally designed charging enclosure with appropriate electrical, thermal, mechanical, and fire-safety protections.</p>
+  <div class="section-head"><div><div class="section-kicker">06 / Implementation roadmap</div><h2>Prototype today. Integrate tomorrow.</h2></div><p class="section-desc">This front-end is connected to Firebase Realtime Database to drive physical keypad hardware.</p></div>
+  <div class="architecture">
+    <div class="panel">
+      <div class="panel-head"><div><div class="panel-title">Working in this prototype</div><div class="panel-sub">Available immediately in your browser</div></div><span class="live-label">READY</span></div>
+      <div class="arch-list">
+        <div class="arch-item"><span class="arch-status" style="background:var(--green)"></span><div><b>Responsive website UI</b><p>Desktop and mobile layouts, kiosk slots, metrics, and navigation.</p></div></div>
+        <div class="arch-item"><span class="arch-status" style="background:var(--green)"></span><div><b>Local & Cloud swap simulation</b><p>Demo form updates slot inventory and writes active OTP to Firebase.</p></div></div>
+        <div class="arch-item"><span class="arch-status" style="background:var(--green)"></span><div><b>Booking interaction</b><p>Creates an OTP reservation for ESP32 hardware authentication.</p></div></div>
+        <div class="arch-item"><span class="arch-status" style="background:var(--green)"></span><div><b>Resettable demo state</b><p>Reset kiosk inventory for repeatable judging and presentations.</p></div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><div class="panel-title">Required for real deployment</div><div class="panel-sub">Backend, electronics, and safety integration</div></div><span class="demo-badge">NEXT PHASE</span></div>
+      <div class="arch-list">
+        <div class="arch-item"><span class="arch-status" style="background:var(--amber)"></span><div><b>Backend & live database</b><p>Shared inventory, authentication, reservation expiry, audit logs, and concurrency handling.</p></div></div>
+        <div class="arch-item"><span class="arch-status" style="background:var(--amber)"></span><div><b>Kiosk controller & sensors</b><p>Door locks, slot sensors, battery identification, telemetry, and secure commands to hardware.</p></div></div>
+        <div class="arch-item"><span class="arch-status" style="background:var(--amber)"></span><div><b>Battery safety controls</b><p>Validated pack compatibility, BMS data, temperature limits, electrical isolation, and fault handling.</p></div></div>
+        <div class="arch-item"><span class="arch-status" style="background:var(--amber)"></span><div><b>PIN Verification</b><p>Server-side PIN verification, rate limiting, and access control.</p></div></div>
+      </div>
+    </div>
+  </div>
 </section>
 </main>
 
-<footer class="footer"><div class="wrap footer-inner"><div class="brand"><span class="brandmark" style="width:29px;height:29px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span><span>volt<em>dock</em></span></div><div>VoltDock two-slot prototype · Connected with Firebase Realtime DB</div><div><strong>Prototype mode</strong> · Hardware OTP Integration active</div></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><div class="brand"><span class="brandmark" style="width:29px;height:29px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 10-13h-7z"/></svg></span><span>volt<em>dock</em></span></div><div>VoltDock two-slot prototype · Connected with Firebase Realtime DB</div><div><strong>Guest Mode</strong> · Hardware OTP Integration active</div></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"><b id="toastTitle">Done</b><span id="toastMessage"></span></div>
 
 <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal"><div class="modal-head"><h3 id="modalTitle">Start a battery swap</h3><button class="close" onclick="closeModal()" aria-label="Close dialog">×</button></div><p id="modalCopy">Simulate the rider journey using the swap panel below.</p><div class="modal-actions"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();scrollToSection('simulator')">Continue to simulator →</button></div></div>
+  <div class="modal"><div class="modal-head"><h3 id="modalTitle">Start a battery swap</h3><button class="close" onclick="closeModal()" aria-label="Close dialog">×</button></div><p id="modalCopy">Simulate the rider journey using the swap panel below.</p><div class="modal-actions"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();scrollToSection('simulator')">Continue to simulator →</button></div></div>
 </div>
 
 <!-- Firebase Integration Script -->
 <script>
-  // Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyDE_w2v_V1Dl97KBOs2nPQU_VNQytRSHLI",
-    authDomain: "voltdock-6f4a5.firebaseapp.com",
-    databaseURL: "https://voltdock-6f4a5-default-rtdb.firebaseio.com",
-    projectId: "voltdock-6f4a5",
-    storageBucket: "voltdock-6f4a5.firebasestorage.app",
-    messagingSenderId: "981267242573",
-    appId: "1:981267242573:web:03b1b946ebf4a3cca20604"
-  };
+  const firebaseConfig = {
+    apiKey: "AIzaSyDE_w2v_V1Dl97KBOs2nPQU_VNQytRSHLI",
+    authDomain: "voltdock-6f4a5.firebaseapp.com",
+    databaseURL: "https://voltdock-6f4a5-default-rtdb.firebaseio.com",
+    projectId: "voltdock-6f4a5",
+    storageBucket: "voltdock-6f4a5.firebasestorage.app",
+    messagingSenderId: "981267242573",
+    appId: "1:981267242573:web:03b1b946ebf4a3cca20604"
+  };
 
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-  const rtdb = firebase.database();
+  firebase.initializeApp(firebaseConfig);
+  const rtdb = firebase.database();
 
-  // --- NEW TIMER AND PENALTY LOGIC ---
-  let countdownInterval;
-  let penaltyActive = false;
+  let countdownInterval;
+  let penaltyActive = false;
+  let slotLockedByUser = false;
 
-  function reserveSlot(stationId, durationSeconds = 10) {
-    if (penaltyActive) {
-      alert("Cooldown active! Please wait for the penalty to clear.");
-      return;
-    }
+  function reserveSlot(stationId, durationSeconds = 10) {
+    if (penaltyActive) {
+      alert("Cooldown active! Please wait for the penalty to clear.");
+      return;
+    }
 
-    const user = auth.currentUser;
-    const userEmail = user ? user.email : "guest_rider@voltdock.demo";
-    const generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+    if (slotLockedByUser) {
+      alert("This slot is currently locked with a custom PIN and cannot be booked.");
+      return;
+    }
 
-    rtdb.ref('locks/' + stationId).update({
-      reservedBy: userEmail,
-      otp: generatedOTP,
-      status: "RESERVED",
-      timestamp: Date.now()
-    }).then(() => {
-      startBookingTimer(stationId, durationSeconds);
-      const result = document.getElementById('bookingResult');
-      result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Battery reserved</div><div class="result-copy">OTP: <b style="font-size:16px;color:white">${generatedOTP}</b><br>Hurry! <span id="liveTimer" style="color:var(--amber);font-weight:bold;"></span> remaining.</div>`;
-      result.classList.add('show');
-    }).catch(error => {
-      alert("Reservation failed: " + error.message);
-    });
-  }
+    const generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
 
-  function startBookingTimer(stationId, duration) {
-    let timer = duration;
-    clearInterval(countdownInterval);
-    
-    countdownInterval = setInterval(function () {
-      let m = parseInt(timer / 60, 10);
-      let s = parseInt(timer % 60, 10);
-      let timerDisplay = document.getElementById("liveTimer");
-      
-      if (timerDisplay) {
-          timerDisplay.innerText = m + ":" + (s < 10 ? "0" : "") + s;
-      }
+    rtdb.ref('locks/' + stationId).update({
+      reservedBy: "guest_rider@voltdock.demo",
+      otp: generatedOTP,
+      status: "RESERVED",
+      timestamp: Date.now()
+    }).then(() => {
+      startBookingTimer(stationId, durationSeconds);
+      const result = document.getElementById('bookingResult');
+      result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Battery reserved</div><div class="result-copy">OTP: <b style="font-size:18px;color:white">${generatedOTP}</b><br>Hurry! <span id="liveTimer" style="color:var(--amber);font-weight:bold;"></span> remaining.</div>`;
+      result.classList.add('show');
+    }).catch(error => {
+      alert("Reservation failed: " + error.message);
+    });
+  }
 
-      if (--timer < 0) {
-        clearInterval(countdownInterval);
-        applyPenalty(stationId);
-      }
-    }, 1000);
-  }
+  function startBookingTimer(stationId, duration) {
+    let timer = duration;
+    clearInterval(countdownInterval);
+    
+    countdownInterval = setInterval(function () {
+      let m = parseInt(timer / 60, 10);
+      let s = parseInt(timer % 60, 10);
+      let timerDisplay = document.getElementById("liveTimer");
+      
+      if (timerDisplay) {
+          timerDisplay.innerText = m + ":" + (s < 10 ? "0" : "") + s;
+      }
 
-  function applyPenalty(stationId) {
-    penaltyActive = true;
-    rtdb.ref('locks/' + stationId).update({ otp: "", status: "EXPIRED" });
-    
-    const result = document.getElementById('bookingResult');
-    result.innerHTML = `<div class="result-title" style="color:var(--red)">⚠ Reservation Expired</div><div class="result-copy">You didn't reach on time. OTP wiped. 5-minute lockout active.</div>`;
-    
-    setTimeout(() => {
-      penaltyActive = false;
-      if(result.innerHTML.includes("Expired")) {
-         result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Penalty Cleared</div><div class="result-copy">You can book a slot again.</div>`;
-      }
-    }, 300000); 
-  }
+      if (--timer < 0) {
+        clearInterval(countdownInterval);
+        applyPenalty(stationId);
+      }
+    }, 1000);
+  }
 
-  // Real-time Listener for Parul Station (OTP & Physical Battery Presence)
-  rtdb.ref('locks/Parul').on('value', snapshot => {
-    const data = snapshot.val();
-    if (!data) return;
+  function applyPenalty(stationId) {
+    penaltyActive = true;
+    rtdb.ref('locks/' + stationId).update({ otp: "", status: "EXPIRED" });
+    
+    const result = document.getElementById('bookingResult');
+    result.innerHTML = `<div class="result-title" style="color:var(--red)">⚠ Reservation Expired</div><div class="result-copy">You didn't reach on time. OTP wiped. 5-minute lockout active.</div>`;
+    
+    setTimeout(() => {
+      penaltyActive = false;
+      if(result.innerHTML.includes("Expired")) {
+         result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Penalty Cleared</div><div class="result-copy">You can book a slot again.</div>`;
+      }
+    }, 300000); 
+  }
 
-    // 1. Physical Battery Presence Check from ESP32 (GPIO 35)
-    if (data.slot1_present !== undefined) {
-      const isPresent = data.slot1_present;
-      const slot1 = slots.find(s => s.id === 1);
-      
-      if (slot1 && slot1.state !== 'reserved') {
-        slot1.state = isPresent ? 'ready' : 'empty';
-        slot1.name = isPresent ? 'Ready Battery' : 'Empty Slot';
-        renderSlots();
-        renderKiosks();
-      }
-    }
+  // --- Realtime Listener for Private User PIN Locking ---
+  rtdb.ref('user_locks/Parul/slotA').on('value', snapshot => {
+    const data = snapshot.val();
+    const slot1 = slots.find(s => s.id === 1);
+    
+    if (data && data.isLocked) {
+      slotLockedByUser = true;
+      if (slot1) {
+        slot1.state = 'locked';
+        slot1.name = 'Locked (User PIN)';
+      }
+    } else {
+      slotLockedByUser = false;
+      if (slot1 && slot1.state === 'locked') {
+        slot1.state = 'ready';
+        slot1.name = 'Ready battery';
+      }
+    }
+    renderSlots();
+    renderKiosks();
+  });
 
-    const parulStation = demoKiosks.find(k => k.id === 'Parul');
+  // --- Realtime Listener for Main Kiosk OTP Swaps ---
+  rtdb.ref('locks/Parul').on('value', snapshot => {
+    const data = snapshot.val();
+    if (!data) return;
 
-    // ESP32 SUCCESS CHECK: If OTP was wiped while status was still RESERVED
-    if ((data.otp === "" || !data.otp) && data.status === 'RESERVED') {
-      clearInterval(countdownInterval);
-      const result = document.getElementById('bookingResult');
-      if(result && result.classList.contains('show') && !penaltyActive) {
-          result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Access Granted</div><div class="result-copy">ESP32 Keypad authentication successful!</div>`;
-      }
-      
-      if (parulStation) parulStation.ready = 0;
-      const slot1 = slots.find(s => s.id === 1);
-      if (slot1) { slot1.state = 'empty'; slot1.name = 'Vacant (Battery Taken)'; }
-      renderSlots();
-      renderKiosks();
-    } 
-    // INITIAL BOOKING SYNC
-    else if (data.status === 'RESERVED') {
-      if (parulStation) parulStation.ready = 0;
-      
-      const slot1 = slots.find(s => s.id === 1);
-      if (slot1) { slot1.state = 'reserved'; slot1.name = 'Reserved Slot'; }
-      
-      const slot2 = slots.find(s => s.id === 2);
-      if (slot2 && slot2.state !== 'charging') {
-        slot2.state = 'empty';
-        slot2.name = 'Vacant return bay';
-      }
-      
-      renderSlots();
-      renderKiosks();
-    }
-  });
+    const parulStation = demoKiosks.find(k => k.id === 'Parul');
+
+    // ESP32 SUCCESS CHECK: When OTP is entered on hardware, it clears the OTP in Firebase
+    if ((data.otp === "" || !data.otp) && data.status === 'RESERVED') {
+      clearInterval(countdownInterval);
+      const result = document.getElementById('bookingResult');
+      if (result && result.classList.contains('show') && !penaltyActive) {
+          result.innerHTML = `<div class="result-title" style="color:var(--green)">✓ Access Granted & Battery Swapped</div><div class="result-copy">ESP32 Keypad authentication successful! Battery registered on-site.</div>`;
+      }
+      
+      if (parulStation) parulStation.ready = 0;
+      const slot1 = slots.find(s => s.id === 1);
+      if (slot1 && !slotLockedByUser) { 
+        slot1.state = 'empty'; 
+        slot1.name = 'Vacant (Battery Taken)'; 
+      }
+      renderSlots();
+      renderKiosks();
+    } 
+    // INITIAL BOOKING SYNC
+    else if (data.status === 'RESERVED' && !slotLockedByUser) {
+      if (parulStation) parulStation.ready = 0;
+      
+      const slot1 = slots.find(s => s.id === 1);
+      if (slot1) { slot1.state = 'reserved'; slot1.name = 'Reserved Slot'; }
+      
+      const slot2 = slots.find(s => s.id === 2);
+      if (slot2 && slot2.state !== 'charging') {
+        slot2.state = 'empty';
+        slot2.name = 'Vacant return bay';
+      }
+      
+      renderSlots();
+      renderKiosks();
+    }
+  });
 </script>
 
 <!-- UI Core Logic -->
 <script>
 const initialSlots = [
-  {id:1,type:'pickup',name:'Ready battery',state:'ready',charge:100},
-  {id:2,type:'return',name:'Vacant return bay',state:'empty',charge:0}
+  {id:1,type:'pickup',name:'Ready battery',state:'ready',charge:100},
+  {id:2,type:'return',name:'Vacant return bay',state:'empty',charge:0}
 ];
 let slots = JSON.parse(JSON.stringify(initialSlots));
 let reservations = [];
 let originalReservation = null;
 
-function slotStateLabel(s){return ({ready:'READY',empty:'EMPTY',charging:'CHARGING',reserved:'RESERVED',occupied:'OCCUPIED'})[s.state]||s.state.toUpperCase()}
-function slotTypeLabel(s){return s.type==='pickup'?'PICKUP':s.type==='return'?'RETURN':'CHARGE'}
+function slotStateLabel(s){return ({ready:'READY',empty:'EMPTY',charging:'CHARGING',reserved:'RESERVED',locked:'LOCKED',occupied:'OCCUPIED'})[s.state]||s.state.toUpperCase()}
 
 function renderSlots(){
- const host=document.getElementById('slotLayout');
- host.innerHTML=slots.map(s=>`<div class="slot ${s.state}" title="Slot ${String(s.id).padStart(2,'0')} · ${slotStateLabel(s)}">
- <span class="slot-num">SLOT ${String(s.id).padStart(2,'0')}</span><div class="slot-icon" style="--fill:${s.charge||0}%;--slot-color:${s.state==='charging'?'var(--amber)':s.state==='reserved'?'var(--cyan)':'var(--green)'}"></div>
- <span class="slot-name">${s.name}</span><span class="slot-state">${slotStateLabel(s)}</span></div>`).join('');
- const ready=slots.filter(s=>s.type==='pickup'&&s.state==='ready').length;
- document.getElementById('metricReady').textContent=String(ready).padStart(2,'0');
- document.getElementById('heroReady').textContent=String(ready).padStart(2,'0');
+ const host=document.getElementById('slotLayout');
+ host.innerHTML=slots.map(s=>`<div class="slot ${s.state}" title="Slot ${String(s.id).padStart(2,'0')} · ${slotStateLabel(s)}">
+ <span class="slot-num">SLOT ${String(s.id).padStart(2,'0')}</span><div class="slot-icon" style="--fill:${s.charge||0}%;--slot-color:${s.state==='charging'?'var(--amber)':s.state==='reserved'?'var(--cyan)':s.state==='locked'?'var(--red)':'var(--green)'}"></div>
+ <span class="slot-name">${s.name}</span><span class="slot-state">${slotStateLabel(s)}</span></div>`).join('');
+ const ready=slots.filter(s=>s.type==='pickup'&&s.state==='ready').length;
+ document.getElementById('metricReady').textContent=String(ready).padStart(2,'0');
+ document.getElementById('heroReady').textContent=String(ready).padStart(2,'0');
 }
 
 function toast(title,message){const t=document.getElementById('toast');document.getElementById('toastTitle').textContent=title;document.getElementById('toastMessage').textContent=message;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),3800)}
@@ -408,62 +411,67 @@ document.getElementById('currentCharge').addEventListener('change',updateBattery
 document.getElementById('reserveOriginal').addEventListener('change',e=>{document.getElementById('pinField').style.display=e.target.checked?'flex':'none'});
 
 document.getElementById('swapForm').addEventListener('submit',e=>{
- e.preventDefault();
- const chosen=batteryCatalogue[selectedBatteryId]||batteryCatalogue[1];
- const ready=slots.find(s=>s.id===chosen.slot&&s.type==='pickup'&&s.state==='ready') || slots.find(s=>s.type==='pickup'&&s.state==='ready');
- const ret=slots.find(s=>s.type==='return'&&s.state==='empty');
- const reserve=document.getElementById('reserveOriginal').checked;
- const pin=document.getElementById('reservePin').value.trim();
- const result=document.getElementById('swapResult');
- 
- if(!ready){result.innerHTML='<div class="result-title" style="color:var(--amber)">⚠ No charged battery available</div><div class="result-copy">This demo station has no ready pickup batteries.</div>';result.classList.add('show');toast('No inventory','There are no ready pickup batteries at this station.');return}
- if(!ret){result.innerHTML='<div class="result-title" style="color:var(--amber)">⚠ No return bay available</div><div class="result-copy">All return bays are occupied in the demo.</div>';result.classList.add('show');return}
- if(reserve&&!/^\d{4}$/.test(pin)){result.innerHTML='<div class="result-title" style="color:var(--amber)">Enter a 4-digit demo PIN</div>';result.classList.add('show');return}
- 
- ready.state='occupied';ready.name='Loaned battery · '+chosen.charge+'%';ready.charge=chosen.charge;
- ret.state='charging';ret.name='Returned battery';ret.charge=15;
- 
- if(reserve){originalReservation={pin:pin,slotId:ret.id,originalLabel:'Your original battery',status:'charging'};ret.name='Original · reserved';ret.state='reserved'}
- renderSlots();
+ e.preventDefault();
+ const chosen=batteryCatalogue[selectedBatteryId]||batteryCatalogue[1];
+ const ready=slots.find(s=>s.id===chosen.slot&&s.type==='pickup'&&s.state==='ready') || slots.find(s=>s.type==='pickup'&&s.state==='ready');
+ const ret=slots.find(s=>s.type==='return'&&s.state==='empty');
+ const reserve=document.getElementById('reserveOriginal').checked;
+ const pin=document.getElementById('reservePin').value.trim();
+ const result=document.getElementById('swapResult');
+ 
+ if(!ready){result.innerHTML='<div class="result-title" style="color:var(--amber)">⚠ No charged battery available</div><div class="result-copy">This demo station has no ready pickup batteries.</div>';result.classList.add('show');toast('No inventory','There are no ready pickup batteries at this station.');return}
+ if(!ret){result.innerHTML='<div class="result-title" style="color:var(--amber)">⚠ No return bay available</div><div class="result-copy">All return bays are occupied in the demo.</div>';result.classList.add('show');return}
+ if(reserve&&!/^\d{4}$/.test(pin)){result.innerHTML='<div class="result-title" style="color:var(--amber)">Enter a 4-digit demo PIN</div>';result.classList.add('show');return}
+ 
+ ready.state='occupied';ready.name='Loaned battery · '+chosen.charge+'%';ready.charge=chosen.charge;
+ ret.state='charging';ret.name='Returned battery';ret.charge=15;
+ 
+ if(reserve){originalReservation={pin:pin,slotId:ret.id,originalLabel:'Your original battery',status:'charging'};ret.name='Original · reserved';ret.state='reserved'}
+ renderSlots();
 
- reserveSlot('Parul', 10);
+ reserveSlot('Parul', 10);
 
- result.innerHTML=`<div class="result-title" style="color:var(--green)">✓ Swap simulated successfully</div><div class="result-copy">Your selected ${chosen.charge}% charged battery from slot ${String(ready.id).padStart(2,'0')} is marked as loaned.</div>`;
- result.classList.add('show');
+ result.innerHTML=`<div class="result-title" style="color:var(--green)">✓ Swap simulated successfully</div><div class="result-copy">Your selected ${chosen.charge}% charged battery from slot ${String(ready.id).padStart(2,'0')} is marked as loaned.</div>`;
+ result.classList.add('show');
 });
 
 document.getElementById('bookingForm').addEventListener('submit',e=>{
- e.preventDefault();
- 
- if(penaltyActive) {
-     toast('Penalty active', 'Wait for the cooldown to finish before booking.');
-     return;
- }
- 
- const ready=slots.find(s=>s.type==='pickup'&&s.state==='ready');
- const secs=Number(document.getElementById('arrivalTime').value);
- const name=document.getElementById('bookingName').value.trim()||'Guest rider';
- const result=document.getElementById('bookingResult');
- 
- if(!ready){result.innerHTML='<div class="result-title" style="color:var(--amber)">⚠ No battery available</div>';result.classList.add('show');return}
- 
- ready.state='reserved';ready.name='Held · '+name;
- renderSlots();
+ e.preventDefault();
+ 
+ if(penaltyActive) {
+     toast('Penalty active', 'Wait for the cooldown to finish before booking.');
+     return;
+ }
 
- reserveSlot('Parul', secs);
+ if(slotLockedByUser) {
+     toast('Slot Locked', 'This slot is currently locked with a custom PIN.');
+     return;
+ }
+ 
+ const ready=slots.find(s=>s.type==='pickup'&&s.state==='ready');
+ const secs=Number(document.getElementById('arrivalTime').value);
+ const name=document.getElementById('bookingName').value.trim()||'Guest rider';
+ const result=document.getElementById('bookingResult');
+ 
+ if(!ready){result.innerHTML='<div class="result-title" style="color:var(--amber)">⚠ No battery available</div>';result.classList.add('show');return}
+ 
+ ready.state='reserved';ready.name='Held · '+name;
+ renderSlots();
+
+ reserveSlot('Parul', secs);
 });
 
 const batteryCatalogue={1:{slot:1,charge:100,health:98,profile:'M1',label:'Ready battery'}};
 let selectedBatteryId=1;
 const demoKiosks = [
-  { id: 'Parul', name: 'VoltDock · Parul University', area: 'Goa Campus', distance: 0.1, eta: 1, ready: 1, charging: 0, slots: 2, chargeLevels: [100], health: 98 },
-  { id: 'ONGC', name: 'VoltDock · ONGC Station', area: 'Goa Campus', distance: 2.5, eta: 8, ready: 1, charging: 1, slots: 2, chargeLevels: [85], health: 92 }
+  { id: 'Parul', name: 'VoltDock · Parul University', area: 'Goa Campus', distance: 0.1, eta: 1, ready: 1, charging: 0, slots: 2, chargeLevels: [100], health: 98 },
+  { id: 'ONGC', name: 'VoltDock · ONGC Station', area: 'Goa Campus', distance: 2.5, eta: 8, ready: 1, charging: 1, slots: 2, chargeLevels: [85], health: 92 }
 ];
 let kioskBookings=[];
 
 function selectBattery(id){selectedBatteryId=id;document.querySelectorAll('.battery-option').forEach(el=>el.classList.toggle('selected',Number(el.dataset.battery)===id));const b=batteryCatalogue[id];if(b){document.getElementById('batteryPercent').textContent=b.charge;document.getElementById('batteryLevel').style.height=b.charge+'%';document.getElementById('rangeValue').textContent=Math.round(b.charge*.8)+' km';document.getElementById('chargeTime').textContent='~'+Math.round((100-b.charge)*.5)+' min';}}
 
-function renderKiosks(){const filter=document.getElementById('kioskFilter')?.value||'all';const sort=document.getElementById('kioskSort')?.value||'distance';let data=demoKiosks.map(k=>({...k,ready:Math.max(0,k.ready-kioskBookings.filter(b=>b.kioskId===k.id&&b.status==='reserved').length)}));if(filter==='available')data=data.filter(k=>k.ready>0);if(filter==='charging')data=data.filter(k=>k.charging>0);data.sort(sort==='batteries'?(a,b)=>b.ready-a.ready||a.distance-b.distance:(a,b)=>a.distance-b.distance);document.getElementById('stationCount').textContent=demoKiosks.length;document.getElementById('totalReady').textContent=data.reduce((sum,k)=>sum+k.ready,0);const host=document.getElementById('kioskList');if(!data.length){host.innerHTML='<div class="panel-sub">No stations match this filter in the demo data.</div>';return}host.innerHTML=data.map(k=>{const levels=k.chargeLevels.slice(0,3).map((v,i)=>`<span class="kiosk-tag">Pack ${i+1}: ${v}%</span>`).join('');return `<article class="kiosk-card"><div class="kiosk-pin">⌖</div><div><div class="kiosk-name">${k.name}</div><div class="kiosk-address">${k.area} · ${k.id}</div><div class="kiosk-meta"><span class="kiosk-tag">${k.ready} batteries ready</span><span class="kiosk-tag">${k.charging} charging bays</span><span class="kiosk-tag">Avg. health ${k.health}%</span>${levels}</div></div><div class="kiosk-side"><div class="kiosk-distance">${k.distance.toFixed(1)} km<small>~${k.eta} min travel</small></div><div class="kiosk-actions"><button class="btn btn-primary btn-small" ${k.ready===0?'disabled style="opacity:.45;cursor:not-allowed"':''} onclick="bookKiosk('${k.id}')">Reserve OTP →</button></div></div></article>`}).join('');}
+function renderKiosks(){const filter=document.getElementById('kioskFilter')?.value||'all';const sort=document.getElementById('kioskSort')?.value||'distance';let data=demoKiosks.map(k=>({...k,ready:Math.max(0,k.ready-(k.id==='Parul'&&(slotLockedByUser||slots.find(s=>s.id===1)?.state!=='ready')?1:0))}));if(filter==='available')data=data.filter(k=>k.ready>0);if(filter==='charging')data=data.filter(k=>k.charging>0);data.sort(sort==='batteries'?(a,b)=>b.ready-a.ready||a.distance-b.distance:(a,b)=>a.distance-b.distance);document.getElementById('stationCount').textContent=demoKiosks.length;document.getElementById('totalReady').textContent=data.reduce((sum,k)=>sum+k.ready,0);const host=document.getElementById('kioskList');if(!data.length){host.innerHTML='<div class="panel-sub">No stations match this filter in the demo data.</div>';return}host.innerHTML=data.map(k=>{const levels=k.chargeLevels.slice(0,3).map((v,i)=>`<span class="kiosk-tag">Pack ${i+1}: ${v}%</span>`).join('');return `<article class="kiosk-card"><div class="kiosk-pin">⌖</div><div><div class="kiosk-name">${k.name}</div><div class="kiosk-address">${k.area} · ${k.id}</div><div class="kiosk-meta"><span class="kiosk-tag">${k.ready} batteries ready</span><span class="kiosk-tag">${k.charging} charging bays</span><span class="kiosk-tag">Avg. health ${k.health}%</span>${levels}</div></div><div class="kiosk-side"><div class="kiosk-distance">${k.distance.toFixed(1)} km<small>~${k.eta} min travel</small></div><div class="kiosk-actions"><button class="btn btn-primary btn-small" ${k.ready===0?'disabled style="opacity:.45;cursor:not-allowed"':''} onclick="bookKiosk('${k.id}')">${k.ready===0?'Slot Locked / Unavailable':'Reserve OTP →'}</button></div></div></article>`}).join('');}
 
 function bookKiosk(id){ reserveSlot(id, 10); }
 
@@ -471,46 +479,6 @@ document.getElementById('kioskFilter')?.addEventListener('change',renderKiosks);
 document.getElementById('kioskSort')?.addEventListener('change',renderKiosks);
 
 renderSlots();updateBatteryStats();selectBattery(1);renderKiosks();
-</script>
-
-<!-- Bottom Left Firebase Login Panel -->
-<div id="fbAuthBox" style="position:fixed;bottom:15px;left:15px;z-index:9999;background:#101917;padding:15px;border:1px solid #b7ff63;border-radius:12px;color:white">
-  <b>VoltDock Firebase Sign-In</b>
-  <input id="fbEmail" type="email" placeholder="Test account email" style="display:block;margin:10px 0;padding:8px;background:#080d0c;color:white;border:1px solid #385040;border-radius:6px">
-  <input id="fbPassword" type="password" placeholder="Password" style="display:block;margin:10px 0;padding:8px;background:#080d0c;color:white;border:1px solid #385040;border-radius:6px">
-  <button id="fbLogin" class="btn btn-primary btn-small" style="padding:8px 12px">Sign in</button>
-  <p id="fbStatus" style="font-size:11px;margin-top:8px;color:#91a49a">Not signed in</p>
-</div>
-
-<script>
-document.getElementById("fbLogin").addEventListener("click", async () => {
-  const status = document.getElementById("fbStatus");
-  const email = document.getElementById("fbEmail").value.trim();
-  const password = document.getElementById("fbPassword").value;
-
-  status.textContent = "Signing in...";
-  try {
-    await auth.signInWithEmailAndPassword(email, password);
-  } catch (error) {
-    status.textContent = "Sign-in error: " + error.message;
-    console.error(error);
-  }
-});
-
-auth.onAuthStateChanged(user => {
-  const status = document.getElementById("fbStatus");
-  if (user) {
-    status.textContent = "Signed in as: " + user.email;
-    document.getElementById("fbEmail").style.display = "none";
-    document.getElementById("fbPassword").style.display = "none";
-    document.getElementById("fbLogin").style.display = "none";
-  } else {
-    document.getElementById("fbEmail").style.display = "block";
-    document.getElementById("fbPassword").style.display = "block";
-    document.getElementById("fbLogin").style.display = "inline-block";
-    status.textContent = "Not signed in";
-  }
-});
 </script>
 </body>
 </html>
